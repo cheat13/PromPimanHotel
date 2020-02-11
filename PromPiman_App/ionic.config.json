@@ -1,0 +1,7 @@
+{
+  "name": "PromPiman_App",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
