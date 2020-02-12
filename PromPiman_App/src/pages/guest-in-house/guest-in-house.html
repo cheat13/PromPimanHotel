@@ -85,201 +85,46 @@
     </ion-row>
   </div>
 
-  <div pedding>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>RM N.</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>GuestName</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Pax</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Arrival</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>TimeIn</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Departure</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>TimeOut</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Nationality</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Company</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>RMRate</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>ABF</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Remark</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </div>
-
+<br>
   <div>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>101</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>ปีเตอร์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>2</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>11/02</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>17:00</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>12/01</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>10:00</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Thai</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>w-in</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>1500</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>2</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label></ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+    <table pedding>
+      <thead class="bgb">
+        <tr>
+          <th width="150">RM N.</th>
+          <th width="250">GuestName</th>
+          <th>Pax</th>
+          <th width="150">Arrival</th>
+          <th width="150">TimeIn</th>
+          <th width="150">Departure</th>
+          <th width="150">TimeOut</th>
+          <th>Nationality</th>
+          <th width="150">Company</th>
+          <th>RMRate</th>
+          <th>ABF</th>
+          <th width="250">Remark</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let member of GuestRegists">
+        <tr>
+          <td width="150">{{ member.roomNo }}</td>
+          <td width="250">{{ member.name }}</td>
+          <td>2</td>
+          <td width="150">{{ member.arriveDate }}</td>
+          <td width="150">{{ member.arriveTime }}</td>
+          <td width="150">{{ member.departureDate }}</td>
+          <td width="150">{{ member.departureTime }}</td>
+          <td>{{ member.nationality }}</td>
+          <td width="150">w-in</td>
+          <td>600</td>
+          <td>2</td>
+          <td width="250">DJ.I-Bar</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label>218</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>ก่อพงศ์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>2</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>02/02</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>17:00</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label></ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>12:00</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>Thai</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>w-in</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>600</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>2</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label>DJ.I-Bar</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </div>
-
+  <br>
   <ion-buttons>
     <button ion-button block>พิมพ์</button>
   </ion-buttons>
