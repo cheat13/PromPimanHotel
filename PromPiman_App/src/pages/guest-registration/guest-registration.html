@@ -11,207 +11,66 @@
   <h3 text-center>
     ทะเบียนผู้พักในโรงแรม พรหมพิมาน โฮเต็ล จ.ศรีสะเกษ
   </h3>
-
   <h4 text-center>
     ประจำเดือน กรกฎาคม พ.ศ. 2561
   </h4>
 
+  <br>
   <div>
-    <ion-row>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>เลขลำดับ</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>วันเวลาที่เข้ามาพัก</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>ห้องพักเลขที่</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>ชื่อตัวและชื่อสกุล</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>สัญชาติ</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>เลขประจำตัวประชาชน <br>ใบสำคัญประจำตัวคนต่างด้าว <br>หรือหนังสือเดินทาง เลขที่ <br>ออกให้โดย
-          </ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>ที่อยู่ปัจจุบัน <br>ที่อยู่ ตำบล อำเภอ จังหวัด<br> หรือประเทศใด</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>อาชีพ</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>มาจากตำบล อำเภอ<br> จังหวัด<br> หรือประเทศใด</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>จะไปที่ตำบล อำเภอ<br> จังหวัด<br> หรือประเทศใด</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>วันเวลา<br> ที่ออกไป</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>หมายเหตุ</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+    <table>
+      <thead class="bgb">
+        <tr>
+          <th>เลขลำดับ</th>
+          <th>วันเวลาที่เข้ามาพัก</th>
+          <th>ห้องพักเลขที่</th>
+          <th width="250">ชื่อตัวและชื่อสกุล</th>
+          <th>สัญชาติ</th>
+          <th width="250">เลขประจำตัวประชาชน<br>ใบสำคัญประจำตัวคนต่างด้าว<br>หรือหนังสือเดินทางเลขที่<br>ออกให้โดย</th>
+          <th width="250">ที่อยู่ปัจจุบัน<br>ที่อยู่ ตำบล อำเภอ จังหวัด<br>หรือประเทศใด</th>
+          <th>อาชีพ</th>
+          <th>มาจากตำบล<br>อำเภอ จังหวัด หรือประเทศใด</th>
+          <th>จะไปที่ตำบล<br>อำเภอ จังหวัด หรือประเทศใด</th>
+          <th>วันเวลา ที่ออกไป</th>
+          <th>หมายเหตุ</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let member of GuestRegists; let i = index">
+        <tr>
+          <td></td>
+          <td>{{ member.arriveDate }}</td>
+          <td>{{ member.roomNo }}</td>
+          <td width="250">{{ member.name }}</td>
+          <td>{{ member.nationality }}</td>
+          <td width="250">{{ member._id }}</td>
+          <td width="250">{{ member.currentaddress }}</td>
+          <td>{{ member.job }}</td>
+          <td>{{ member.comefrom }}</td>
+          <td>{{ member.goto }}</td>
+          <td>{{ member.departureDate }}</td>
+          <td>{{ member.remark }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>{{ member.arriveTime }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ member.gotoProvince }}</td>
+          <td>{{ member.departureTime }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div>
-    <ion-row>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>181</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>6/7/2018 <br> 15:00</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>309</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>วีระชัย ย่อชัย</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>ไทย</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>3 3314 00287 65 2
-          </ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>109 ม.9 ต.โคกม้า อ.ประโคนชัย จ.บุรีรัมย์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>รับจ้าง</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>บุรีรัมย์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>อ.เมือง <br> จ.ศรีสะเกษ</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>8/7/18<br> 12:00 </ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>หมายเหตุ</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </div>
-
-  <div>
-    <ion-row>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>182</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>6/7/2018 <br> 20:00</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>211</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>ประมวล สายโรจน์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>ไทย</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>1 1304 00287 65 2
-          </ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>109 ม.9 ต.โคกม้า อ.ประโคนชัย จ.บุรีรัมย์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>รับจ้าง</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>บุรีรัมย์</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>อ.เมือง <br> จ.ศรีสะเกษ</ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>8/7/18<br> 12:00 </ion-label>
-        </ion-item>
-      </ion-col>
-      <ion-col col-1>
-        <ion-item text-center>
-          <ion-label>หมายเหตุ</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </div>
+  <br>
+  <ion-buttons>
+    <button ion-button block>พิมพ์</button>
+  </ion-buttons>
 
 </ion-content>
