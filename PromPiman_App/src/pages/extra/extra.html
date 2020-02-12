@@ -15,17 +15,27 @@
 
 <ion-content padding>
   <ion-row align-items-center>
-    <ion-col col-11>
-      <ion-searchbar (ionInput)="search($event)"> </ion-searchbar>
+    <ion-col col-2>
+
     </ion-col>
-    <ion-col col-1>
+    <ion-col col-8>
+      <ion-item>
+        <ion-label>ห้อง</ion-label>
+        <ion-select interface="action-sheet" [(ngModel)]="roomNum" (ionChange)="showExtraDetail($event)">
+          <ng-container *ngFor="let item of lstRoom">
+            <ion-option value="{{item}}">{{item}}</ion-option>
+          </ng-container>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
       <button ion-button icon-only clear large (click)="addExtra()">
         <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-col>
   </ion-row>
 
-  <h2>ห้อง {{roomNum}}</h2>
+  <h2> ห้อง {{roomNum}}</h2>
 
   <ion-card>
     <ion-card-content>

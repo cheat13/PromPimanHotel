@@ -1,3 +1,4 @@
+import { lstRoomsExtra } from './../../models/Member';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Extra } from '../../models/Member';
@@ -15,37 +16,18 @@ import { Extra } from '../../models/Member';
   templateUrl: 'extra.html',
 })
 export class ExtraPage {
+  lstRoom: string[] = [];
   roomNum: string;
-  lstExtra: Extra[];
-  totalPrice: number;
+  lstExtra: Extra[] = [];
+  totalPrice: number = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExtraPage');
-    this.lstExtra = [];
-    let ex1 = new Extra;
-    ex1.roomNumber = "519";
-    this.roomNum = ex1.roomNumber;
-    ex1.type = "minibar";
-    ex1.amount = 40;
-    ex1.time = Date.now();
-
-    let ex2 = new Extra;
-    ex2.time = Date.now();
-    ex2.roomNumber = "519";
-    ex2.type = "ซักรีด";
-    ex2.amount = 100;
-    console.log(this.lstExtra);
-    this.lstExtra.push(ex1, ex2);
-
-    console.log(this.lstExtra);
-    this.totalPrice = 0;
-    for (const i of this.lstExtra) {
-      this.totalPrice += i.amount;
-    }
-
+    lstRoomsExtra.forEach(it => {
+      this.lstRoom.push(it.roomNumber);
+    });
   }
 
   addExtra() {
@@ -63,17 +45,8 @@ export class ExtraPage {
     modal.present();
   }
 
-  search(ev: any) {
-
-    // set val to the value of the searchbar
-    const val = ev.target.value;
-
-    // if the value is an empty string don't filter the items
-    // if (val && val.trim() != '') {
-    //   this.items = this.items.filter((item) => {
-    //     return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-    //   })
-    // }
-    return null;
-  }
+  showExtraDetail(ev: any) {
+    this.lstExtra = lstRoomsExtra.find(it => it.roomNumber == ev).lstExtra;
+    this.totalPrice = this.lstExtra.reduce((sum, number) => sum + number.amount, 0)
+  };
 }
