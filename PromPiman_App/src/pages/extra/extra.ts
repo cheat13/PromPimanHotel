@@ -1,7 +1,6 @@
-import { lstRoomsExtra } from './../../models/Member';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { Extra } from '../../models/Member';
+import { Extra, lstRoomsExtra } from '../../models/Extra';
 
 /**
  * Generated class for the ExtraPage page.
@@ -20,6 +19,7 @@ export class ExtraPage {
   roomNum: string;
   lstExtra: Extra[] = [];
   totalPrice: number = 0;
+  isShowBut: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
@@ -46,6 +46,7 @@ export class ExtraPage {
   }
 
   showExtraDetail(ev: any) {
+    this.isShowBut = false;
     this.lstExtra = lstRoomsExtra.find(it => it.roomNumber == ev).lstExtra;
     this.totalPrice = this.lstExtra.reduce((sum, number) => sum + number.amount, 0)
   };
