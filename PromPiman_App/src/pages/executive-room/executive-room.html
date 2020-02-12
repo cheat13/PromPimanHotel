@@ -9,10 +9,61 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Executive_Room</ion-title>
+    <ion-title>เพิ่มห้องพักผู้บริหาร</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <button ion-button (click)="add()">ห้องพักผู้บริหาร</button>
+  <ion-item>
+    <ion-label>
+      <ion-row>
+        <ion-col col-2>
+          ห้อง
+        </ion-col>
+        <ion-col col-4>
+          ผู้บริหาร
+        </ion-col>
+        <ion-col col-3>
+          วันที่ Checkin
+        </ion-col>
+        <ion-col col-3>
+          วันที่ Checkout
+        </ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
 
+  <ion-item>
+    <ion-label>
+      <ion-row>
+        <ion-col col-2>
+          519
+        </ion-col>
+        <ion-col col-4>
+          พี่น้อย
+        </ion-col>
+        <ion-col col-3>
+          20/02/2563
+        </ion-col>
+        <ion-col col-3>
+          23/02/2563
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-2>
+            430
+          </ion-col>
+          <ion-col col-4>
+            พี่บุ๋ม
+          </ion-col>
+          <ion-col col-3>
+            21/02/2563
+          </ion-col>
+          <ion-col col-3>
+            24/02/2563
+          </ion-col>
+        </ion-row>
+    </ion-label>   
+  </ion-item>
 </ion-content>

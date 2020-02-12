@@ -17,21 +17,12 @@ import { CashierReportPage } from '../pages/cashier-report/cashier-report';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AddOutOfOrderPage } from '../pages/add-out-of-order/add-out-of-order';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    RegisterPage,
-    CheckInPage,
-    CheckOutPage,
-    BookingPage,
-    ExtraPage,
-    OutOfOrderPage,
-    ExecutiveRoomPage,
-    GuestInHousePage,
-    GuestRegistrationPage,
-    CashierReportPage,
   ],
   imports: [
     BrowserModule,
@@ -41,16 +32,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    RegisterPage,
-    CheckInPage,
-    CheckOutPage,
-    BookingPage,
-    ExtraPage,
-    OutOfOrderPage,
-    ExecutiveRoomPage,
-    GuestInHousePage,
-    GuestRegistrationPage,
-    CashierReportPage,
   ],
   providers: [
     StatusBar,

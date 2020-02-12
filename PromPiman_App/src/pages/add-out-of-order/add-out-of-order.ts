@@ -3,19 +3,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-executive-room',
-  templateUrl: 'executive-room.html',
+  selector: 'page-add-out-of-order',
+  templateUrl: 'add-out-of-order.html',
 })
-export class ExecutiveRoomPage {
+export class AddOutOfOrderPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExecutiveRoomPage');
+    console.log('ionViewDidLoad AddOutOfOrderPage');
   }
-  add(){
-    this.navCtrl.push("AddExecutiveRoomPage")
+  add() {
+    this.navCtrl.push("OutOfOrderPage")
   }
 
 }
