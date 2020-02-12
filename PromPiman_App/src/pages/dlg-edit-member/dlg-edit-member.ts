@@ -22,7 +22,7 @@ export class DlgEditMemberPage {
       'address': [null],
       'dateOfIssue': [null],
       'dateOfExpiry': [null],
-      'picture': [null],
+      'picture': ['../../assets/imgs/man.png'],
       'phoneNumber': [null, [Validators.compose([Validators.pattern('[0-9]*')]), Validators.minLength(10), Validators.maxLength(10), Validators.required]],
       'signature': [null],
       'creationDateTime': [null],

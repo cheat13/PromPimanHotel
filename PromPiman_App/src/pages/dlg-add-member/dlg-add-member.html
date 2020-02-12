@@ -9,9 +9,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-2>
-          <button type="button" ion-button block icon-only outline large color="dark">
-            <ion-icon name="ios-person"></ion-icon>
-          </button>
+          <img src="{{FormItem.get('picture').value}}">
         </ion-col>
         <ion-col>
           <ion-item [class.invalid]="isValid('idNumber')">
