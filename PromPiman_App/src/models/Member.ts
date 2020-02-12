@@ -10,4 +10,6 @@ export class Member {
     picture: string;
     phoneNumber: string;
     signature: string;
+    creationDateTime: Date;
+    lastUpdate: Date;
 }
