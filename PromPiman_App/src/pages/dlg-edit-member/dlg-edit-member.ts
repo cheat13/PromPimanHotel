@@ -25,6 +25,8 @@ export class DlgEditMemberPage {
       'picture': [null],
       'phoneNumber': [null, [Validators.compose([Validators.pattern('[0-9]*')]), Validators.minLength(10), Validators.maxLength(10), Validators.required]],
       'signature': [null],
+      'creationDateTime': [null],
+      'lastUpdate': [null],
     });
 
     let member = navParams.get('member');
