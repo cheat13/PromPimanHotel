@@ -1,9 +1,3 @@
-<!--
-  Generated template for the RegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -14,5 +8,70 @@
 </ion-header>
 
 <ion-content padding>
+
+  <ion-grid>
+    <ion-row text-center align-items-center>
+      <ion-col col-1>
+
+      </ion-col>
+      <ion-col col-10>
+        <ion-searchbar (ionInput)="searching($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col col-1>
+        <button ion-button icon-only clear large>
+          <ion-icon name=" md-add-circle"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-1>
+          ไอดี
+        </ion-col>
+        <ion-col col-3>
+          ชื่อ - สกุล
+        </ion-col>
+        <ion-col col-3>
+          Full Name
+        </ion-col>
+        <ion-col col-3>
+          เบอร์โทรศัพท์
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-row text-center align-items-center>
+          <ion-col col-1>
+            {{ item._id }}
+          </ion-col>
+          <ion-col col-3>
+            {{ item.tHName }}
+          </ion-col>
+          <ion-col col-3>
+            {{ item.eNName }}
+          </ion-col>
+          <ion-col col-3>
+            {{ item.phoneNumber }}
+          </ion-col>
+          <ion-col>
+            <button ion-button color="light">แก้ไข</button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list> -->
 
 </ion-content>
