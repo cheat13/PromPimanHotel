@@ -11,3 +11,10 @@ export class Member {
     phoneNumber: string;
     signature: string;
 }
+
+export class Extra {
+    type: string;
+    amount: number;
+    time: any;
+    roomNumber: string;
+}

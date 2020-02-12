@@ -19,58 +19,62 @@
       <ion-searchbar (ionInput)="search($event)"> </ion-searchbar>
     </ion-col>
     <ion-col col-1>
-      <button ion-button >
+      <button ion-button icon-only clear large (click)="addExtra()">
         <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-col>
   </ion-row>
 
+  <h2>ห้อง {{roomNum}}</h2>
 
-  <ion-row style="border-bottom: groove;">
-    <ion-col col-4>
-      <ion-label>ประเภท</ion-label>
-    </ion-col>
-    <ion-col col-4>
-      <ion-label>เงินจำนวน(บาท)</ion-label>
-    </ion-col>
-    <ion-col col-4>
-      <ion-label>เวลา</ion-label>
-    </ion-col>
-  </ion-row>
-  <ion-row style="border-bottom: groove;">
-    <ion-col col-4>
-      <ion-label>minibar</ion-label>
-    </ion-col>
-    <ion-col col-4>
-      <ion-label>50</ion-label>
-    </ion-col>
-    <ion-col col-4>
-      <ion-label>11/02/20 17.00น.</ion-label>
-    </ion-col>
-  </ion-row>
-  <ion-row style="border-bottom: groove;">
-    <ion-col col-4>
-      <ion-label>minibar</ion-label>
-    </ion-col>
-    <ion-col col-4>
-      <ion-label>20</ion-label>
-    </ion-col>
-    <ion-col col-4>
-      <ion-label>10/02/20 17.00น.</ion-label>
-    </ion-col>
-  </ion-row>
+  <ion-card>
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-4>
+          ประเภท
+        </ion-col>
+        <ion-col col-4>
+          เงินจำนวน(บาท)
+        </ion-col>
+        <ion-col col-4>
+          เวลา
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-list>
+    <ion-item *ngFor="let item of lstExtra">
+      <ion-row text-center>
+        <ion-col col-4>
+          {{item.type}}
+        </ion-col>
+        <ion-col col-4>
+          {{item.amount}}
+        </ion-col>
+        <ion-col col-4>
+          {{item.time | date: 'dd/MM/yyyy'}}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
 
   <ion-footer>
-    <ion-row style="border-bottom: groove;">
-      <ion-col col-2>
-        <ion-label>ราคารวม</ion-label>
-      </ion-col>
-      <ion-col col-8>
-      </ion-col>
-      <ion-col col-2>
-        <ion-label>70</ion-label>
-      </ion-col>
-    </ion-row>
+    <ion-list>
+      <ion-item>
+        <ion-row text-center>
+          <ion-col col-2>
+            ราคารวม
+          </ion-col>
+          <ion-col col-7>
+          </ion-col>
+          <ion-col col-3>
+            {{totalPrice}}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
   </ion-footer>
 
 </ion-content>
