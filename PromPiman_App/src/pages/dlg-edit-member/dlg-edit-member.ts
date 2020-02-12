@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @IonicPage()
 @Component({
-  selector: 'page-dlg-add-member',
-  templateUrl: 'dlg-add-member.html',
+  selector: 'page-dlg-edit-member',
+  templateUrl: 'dlg-edit-member.html',
 })
-export class DlgAddMemberPage {
+export class DlgEditMemberPage {
 
   public FormItem: FormGroup;
   private submitRequested: boolean
@@ -27,12 +27,12 @@ export class DlgAddMemberPage {
       'signature': [null],
     });
 
-    let _id = navParams.get('_id');
-    this.FormItem.get('_id').setValue(_id);
+    let member = navParams.get('member');
+    this.FormItem.patchValue(member);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DlgAddMemberPage');
+    console.log('ionViewDidLoad DlgEditMemberPage');
   }
 
   public okDialog() {

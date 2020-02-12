@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Member } from '../../models/member';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Member } from '../../models/Member';
 
 @IonicPage()
 @Component({
@@ -16,9 +9,9 @@ import { Member } from '../../models/member';
 })
 export class RegisterPage {
 
-  items: Member[];
+  members: Member[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.getMembers();
   }
 
@@ -27,13 +20,15 @@ export class RegisterPage {
     let m2 = new Member();
     m1._id = "0001";
     m2._id = "0002";
+    m1.idNumber = "0123456789123";
+    m2.idNumber = "0123456789123";
     m1.tHName = "นายกฤษณะ ตระกูลพรหม";
     m2.tHName = "นายวรพุทธิ์ แสงชาติ";
     m1.eNName = "Kritsana Tragoolphrom";
     m2.eNName = "Woraput SangChart";
     m1.phoneNumber = "0837325693";
     m2.phoneNumber = "0854579229";
-    this.items = [m1, m2];
+    this.members = [m2, m1];
   }
 
   ionViewDidLoad() {
@@ -41,23 +36,64 @@ export class RegisterPage {
   }
 
   searching(ev: any) {
-    // Reset items back to all of the items
     this.getMembers();
-
-    // set val to the value of the searchbar
     const val = ev.target.value;
-
-    // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
-      this.items = this.items.filter((item) => {
-        return this.haveWord(item.tHName, val) ||
-          this.haveWord(item.eNName, val) ||
-          this.haveWord(item.phoneNumber, val);
+      this.members = this.members.filter((item) => {
+        return this.haveAnyWord(item.tHName, val) ||
+          this.haveAnyWord(item.eNName, val) ||
+          this.haveAnyWord(item.phoneNumber, val);
       })
     }
   }
 
-  haveWord(item: any, word: any): boolean {
-    return item.toLowerCase().indexOf(word.toLowerCase()) > -1
+  haveAnyWord(item: any, word: any): boolean {
+    return item.toLowerCase().indexOf(word.toLowerCase()) > -1;
+  }
+
+  presentModalAddMember() {
+    const modal = this.modalCtrl.create("DlgAddMemberPage", { _id: "0003" });
+    modal.onDidDismiss(data => {
+      if (data) {
+        let member = new Member();
+        member._id = data.get('_id').value;
+        member.idNumber = data.get('idNumber').value;
+        member.tHName = data.get('tHName').value;
+        member.eNName = data.get('eNName').value;
+        member.dateOfBirth = data.get('dateOfBirth').value;
+        member.address = data.get('address').value;
+        member.dateOfIssue = data.get('dateOfIssue').value;
+        member.dateOfExpiry = data.get('dateOfExpiry').value;
+        member.picture = data.get('picture').value;
+        member.phoneNumber = data.get('phoneNumber').value;
+        member.signature = data.get('signature').value;
+        this.members.unshift(member);
+      }
+    });
+    modal.present();
+  }
+
+  presentModalEditMember(member: Member) {
+    const modal = this.modalCtrl.create("DlgEditMemberPage", { member: member });
+    modal.onDidDismiss(data => {
+      if (data) {
+        let member = new Member();
+        member._id = data.get('_id').value;
+        member.idNumber = data.get('idNumber').value;
+        member.tHName = data.get('tHName').value;
+        member.eNName = data.get('eNName').value;
+        member.dateOfBirth = data.get('dateOfBirth').value;
+        member.address = data.get('address').value;
+        member.dateOfIssue = data.get('dateOfIssue').value;
+        member.dateOfExpiry = data.get('dateOfExpiry').value;
+        member.picture = data.get('picture').value;
+        member.phoneNumber = data.get('phoneNumber').value;
+        member.signature = data.get('signature').value;
+
+        var index = this.members.findIndex(it => it._id == member._id);
+        this.members[index] = member;
+      }
+    });
+    modal.present();
   }
 }

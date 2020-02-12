@@ -18,8 +18,8 @@
         <ion-searchbar (ionInput)="searching($event)"></ion-searchbar>
       </ion-col>
       <ion-col col-1>
-        <button ion-button icon-only clear large>
-          <ion-icon name=" md-add-circle"></ion-icon>
+        <button ion-button icon-only clear large (click)="presentModalAddMember()">
+          <ion-icon name="md-add-circle"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
@@ -28,7 +28,7 @@
   <ion-card>
     <ion-card-content>
       <ion-row text-center>
-        <ion-col col-1>
+        <ion-col col-2>
           ไอดี
         </ion-col>
         <ion-col col-3>
@@ -46,22 +46,25 @@
 
   <ion-grid>
     <ion-list>
-      <ion-item *ngFor="let item of items">
+      <ion-item *ngFor="let member of members">
         <ion-row text-center align-items-center>
-          <ion-col col-1>
-            {{ item._id }}
+          <ion-col col-2>
+            {{ member._id }}
           </ion-col>
           <ion-col col-3>
-            {{ item.tHName }}
+            {{ member.tHName }}
           </ion-col>
           <ion-col col-3>
-            {{ item.eNName }}
+            {{ member.eNName }}
           </ion-col>
           <ion-col col-3>
-            {{ item.phoneNumber }}
+            {{ member.phoneNumber }}
           </ion-col>
+          <!-- <ion-col>
+            <button ion-button block >Check In</button>
+          </ion-col> -->
           <ion-col>
-            <button ion-button color="light">แก้ไข</button>
+            <button ion-button block color="light" (click)="presentModalEditMember(member)">แก้ไข</button>
           </ion-col>
         </ion-row>
       </ion-item>
@@ -69,8 +72,8 @@
   </ion-grid>
 
   <!-- <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item }}
+    <ion-item *ngFor="let member of members">
+      {{ member }}
     </ion-item>
   </ion-list> -->
 
