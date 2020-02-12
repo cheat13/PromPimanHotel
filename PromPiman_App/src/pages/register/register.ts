@@ -17,17 +17,19 @@ export class RegisterPage {
 
   getMembers() {
     let m1 = new Member();
-    let m2 = new Member();
     m1._id = "0001";
-    m2._id = "0002";
     m1.idNumber = "0123456789123";
-    m2.idNumber = "0123456789123";
     m1.tHName = "นายกฤษณะ ตระกูลพรหม";
-    m2.tHName = "นายวรพุทธิ์ แสงชาติ";
     m1.eNName = "Kritsana Tragoolphrom";
-    m2.eNName = "Woraput SangChart";
     m1.phoneNumber = "0837325693";
+
+    let m2 = new Member();
+    m2._id = "0002";
+    m2.idNumber = "0123456789123";
+    m2.tHName = "นายวรพุทธิ์ แสงชาติ";
+    m2.eNName = "Woraput SangChart";
     m2.phoneNumber = "0854579229";
+    
     this.members = [m2, m1];
   }
 

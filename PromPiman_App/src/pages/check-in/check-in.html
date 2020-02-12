@@ -1,18 +1,108 @@
-<!--
-  Generated template for the CheckInPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Check_In</ion-title>
+    <ion-title>Check In</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col col-6>
 
+        <ion-card>
+          <ion-card-content>
+
+            <ion-row text-center align-items-center>
+
+              <ion-col col-2>
+                <img src="../../assets/imgs/1377139107-2-o.jpg">
+              </ion-col>
+
+              <ion-col>
+                <ion-row text-left align-items-center>
+                  <ion-col col-4>
+                    <h1>ข้อมูลผู้พักโรงแรม</h1>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button icon-only>
+                      <ion-icon name="md-search"></ion-icon>
+                    </button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-item>
+                    <!-- <ion-label>ชื่อ-สกุล (ไทย)</ion-label> -->
+                    <ion-input type="text" disabled></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <!-- <ion-label>หมายเลขโทรศัพท์</ion-label> -->
+                    <ion-input type="text" disabled>
+                    </ion-input>
+                  </ion-item>
+                </ion-row>
+
+                <ion-row>
+
+                </ion-row>
+
+              </ion-col>
+            </ion-row>
+
+            <ion-row text-start align-items-center>
+              <ion-col col-2>
+                <h1>ห้อง</h1>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-input [disabled]="true"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col col-1>
+                <button ion-button icon-only>
+                  <ion-icon name="md-search"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+
+            <ion-row text-start align-items-center>
+              <ion-col col-2>
+                <h1>วันที่เข้า</h1>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY"></ion-datetime>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row text-start align-items-center>
+              <ion-col col-2>
+                <h1>วันที่ออก</h1>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY"></ion-datetime>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row padding-top>
+              <ion-col col-5></ion-col>
+              <ion-col>
+                <button ion-button block type="submit" color="primary">ยืนยัน</button>
+              </ion-col>
+              <ion-col col-5></ion-col>
+            </ion-row>
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -10,6 +10,8 @@ export class Member {
     picture: string;
     phoneNumber: string;
     signature: string;
+    creationDateTime: Date;
+    lastUpdate: Date;
 }
 
 export class Extra {
@@ -23,7 +25,7 @@ export class roomsExtra {
     lstExtra: Extra[];
 }
 
- export const lstRoomsExtra: roomsExtra[] =
+export const lstRoomsExtra: roomsExtra[] =
     [
         {
             roomNumber: "519",
