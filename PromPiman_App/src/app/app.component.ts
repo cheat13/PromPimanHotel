@@ -31,18 +31,17 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'CheckIn', component: CheckInPage },
-      { title: 'CheckOut', component: CheckOutPage },
-      { title: 'Booking', component: BookingPage },
-      { title: 'Extra', component: ExtraPage },
-      { title: 'OutOfOrder', component: OutOfOrderPage },
-      { title: 'ExecutiveRoom', component: ExecutiveRoomPage },
-      { title: 'GuestInHouse', component: GuestInHousePage },
-      { title: 'GuestRegistration', component: GuestRegistrationPage },
-      { title: 'CashierReport', component: CashierReportPage },
+      { title: 'Register', component: "RegisterPage" },
+      { title: 'CheckIn', component: "CheckInPage" },
+      { title: 'CheckOut', component: "CheckOutPage" },
+      { title: 'Booking', component: "BookingPage" },
+      { title: 'Extra', component: "ExtraPage" },
+      { title: 'OutOfOrder', component: "OutOfOrderPage" },
+      { title: 'ExecutiveRoom', component: "ExecutiveRoomPage" },
+      { title: 'GuestInHouse', component: "GuestInHousePage" },
+      { title: 'GuestRegistration', component: "GuestRegistrationPage" },
+      { title: 'CashierReport', component: "CashierReportPage" }
     ];
-
   }
 
   initializeApp() {

@@ -1,18 +1,56 @@
-<!--
-  Generated template for the OutOfOrderPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Out_Of_Order</ion-title>
+    <ion-title>แจ้งปัญหาการซ่อม</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <button ion-button (click)="add()">แจ้งปัญหา</button>
+  <ion-item>
+    <ion-label>
+      <ion-row>
+        <ion-col col-3>
+          ห้อง
+        </ion-col>
+        <ion-col col-7>
+          ปัญหาการแจ้งซ่อม
+        </ion-col>
+        <ion-col col-2>
+          สถานะ
+        </ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      <ion-row>
+        <ion-col col-3>
+          502
+        </ion-col>
+        <ion-col col-7>
+          เครื่องทำน้ำอุ่นเสีย
+        </ion-col>
+        <ion-col col-2>
+          ยังไม่ได้ซ่อม
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          419
+        </ion-col>
+        <ion-col col-7>
+          ไฟไม่ติด
+        </ion-col>
+        <ion-col col-2>
+          ดำเนินการซ่อมเรียบร้อยแล้ว
+        </ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
 
 </ion-content>
