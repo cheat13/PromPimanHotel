@@ -1,9 +1,3 @@
-<!--
-  Generated template for the BookingPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -14,5 +8,74 @@
 </ion-header>
 
 <ion-content padding>
+
+  <ion-grid>
+    <ion-row text-center align-items-center>
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <ion-searchbar (ionInput)="searching($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col col-1>
+        <button ion-button icon-start large block outline>
+          <ion-icon name="md-checkmark-circle-outline"></ion-icon>
+          จองห้อง
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-3>
+          ชื่อ
+        </ion-col>
+        <ion-col col-3>
+          เบอร์โทรศัพท์
+        </ion-col>
+        <ion-col>
+          เข้าวันที่
+        </ion-col>
+        <ion-col>
+          ออกวันที่
+        </ion-col>
+        <ion-col>
+          จองเมื่อ
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-list>
+      <ion-item *ngFor="let reserv of reservations">
+        <ion-row text-center align-items-center>
+          <ion-col col-3>
+            {{ reserv.name }}
+          </ion-col>
+          <ion-col col-3>
+            {{ reserv.phoneNumber }}
+          </ion-col>
+          <ion-col>
+            {{ reserv.arrivalDateTime| date:'dd/MM/yyyy' }}
+          </ion-col>
+          <ion-col>
+            {{ reserv.departureDateTime| date:'dd/MM/yyyy' }}
+          </ion-col>
+          <ion-col>
+            {{ reserv.creationDateTime | date:'dd/MM/yyyy' }}
+          </ion-col>
+          <ion-col col-1>
+            <button ion-button block color="light">แก้ไข</button>
+          </ion-col>
+          <ion-col col-1>
+            <button ion-button block >เรียบร้อย</button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
 
 </ion-content>
