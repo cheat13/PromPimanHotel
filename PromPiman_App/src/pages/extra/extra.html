@@ -40,14 +40,17 @@
   <ion-card>
     <ion-card-content>
       <ion-row text-center>
-        <ion-col col-4>
+        <ion-col>
           ประเภท
         </ion-col>
-        <ion-col col-4>
+        <ion-col>
           เงินจำนวน(บาท)
         </ion-col>
-        <ion-col col-4>
+        <ion-col>
           เวลา
+        </ion-col>
+        <ion-col>
+
         </ion-col>
       </ion-row>
     </ion-card-content>
@@ -55,16 +58,19 @@
 
 
   <ion-list>
-    <ion-item *ngFor="let item of lstExtra">
+    <ion-item *ngFor="let item of lstExtra; let i= index ">
       <ion-row text-center>
-        <ion-col col-4>
+        <ion-col>
           {{item.type}}
         </ion-col>
-        <ion-col col-4>
+        <ion-col>
           {{item.amount}}
         </ion-col>
-        <ion-col col-4>
+        <ion-col>
           {{item.time | date: 'dd/MM/yyyy'}}
+        </ion-col>
+        <ion-col>
+          <button ion-button (click)="deleteExtra(i)">ลบ</button>
         </ion-col>
       </ion-row>
     </ion-item>

@@ -39,15 +39,26 @@ export class ExtraPage {
         ex.amount = data.get('amount').value;
         ex.time = data.get('time').value;
         this.lstExtra.unshift(ex);
-        this.totalPrice += Number(ex.amount);
+        this.calculateTotal();
       }
     });
     modal.present();
   }
 
+  calculateTotal() {
+    this.totalPrice = this.lstExtra.reduce((sum, number) => sum + Number(number.amount), 0);
+  }
+
   showExtraDetail(ev: any) {
     this.isShowBut = false;
     this.lstExtra = lstRoomsExtra.find(it => it.roomNumber == ev).lstExtra;
-    this.totalPrice = this.lstExtra.reduce((sum, number) => sum + number.amount, 0)
+    this.calculateTotal();
   };
+
+  deleteExtra(index: number) {
+    if (index !== -1) {
+      this.lstExtra.splice(index, 1);
+      this.calculateTotal();
+    }
+  }
 }
