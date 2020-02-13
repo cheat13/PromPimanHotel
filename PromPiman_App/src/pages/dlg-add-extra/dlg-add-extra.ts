@@ -22,7 +22,7 @@ export class DlgAddExtraPage {
     this.FormItem = this.fb.group({
       'roomNum': [null, Validators.required],
       'type': [null, Validators.required],
-      'amount': [null, Validators.required],
+      'amount': [null, Validators.compose([Validators.pattern('[0-9]*'), Validators.required])],
       'time': [null, Validators.required],
     });
 
