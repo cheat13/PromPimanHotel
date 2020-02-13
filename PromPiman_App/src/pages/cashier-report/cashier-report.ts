@@ -32,28 +32,15 @@ export class CashierReportPage {
   }
 
   presentModalAddExtra() {
-
     const modal = this.modalCtrl.create("DlgCashierReportPage");
-    modal.present()
-    // const modalCtrl = this.modalCtrl.create("DlgCashierReportPage");
-    // modal.onDidDismiss(data => {
-    //   if (data) {
-    //     let member = new Member();
-    //     member._id = data.get('_id').value;
-    //     member.idNumber = data.get('idNumber').value;
-    //     member.tHName = data.get('tHName').value;
-    //     member.eNName = data.get('eNName').value;
-    //     member.dateOfBirth = data.get('dateOfBirth').value;
-    //     member.address = data.get('address').value;
-    //     member.dateOfIssue = data.get('dateOfIssue').value;
-    //     member.dateOfExpiry = data.get('dateOfExpiry').value;
-    //     member.picture = data.get('picture').value;
-    //     member.phoneNumber = data.get('phoneNumber').value;
-    //     member.signature = data.get('signature').value;
-    //     this.members.unshift(member);
-    //   }
-    // });
-    // modalCtrl.present();
-
+    modal.onDidDismiss(data => {
+      if (data) {
+        let item = new CashierReport();
+        item.amount = data.value.amount;
+        item.order = data.value.order;
+        this.CashierReports.unshift(item);
+      }
+    });
+    modal.present();
   }
 }
