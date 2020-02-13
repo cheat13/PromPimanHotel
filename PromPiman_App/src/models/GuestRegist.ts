@@ -15,7 +15,7 @@ export class GuestRegist {
     remark: string;
     pax: number;
     company: string;
-    roomrate: number;
+    roomrate: string;
     abf?: number;
 }
 
@@ -38,7 +38,7 @@ export const GuestInhouse: GuestRegist[] =
             remark: "DJ.I-Bar",
             pax: 2,
             company: "w-in",
-            roomrate: 600,
+            roomrate: "600",
             abf: 2,
         },
         {
@@ -58,7 +58,7 @@ export const GuestInhouse: GuestRegist[] =
             remark: "",
             pax: 2,
             company: "w-in",
-            roomrate: 600,
+            roomrate: "600",
             abf: 2,
         },
         {
@@ -78,7 +78,7 @@ export const GuestInhouse: GuestRegist[] =
             remark: "",
             pax: 1,
             company: "w-in",
-            roomrate: 600,
+            roomrate: "600",
             abf: 1,
         },
         {
@@ -97,8 +97,8 @@ export const GuestInhouse: GuestRegist[] =
             departureTime: "12:00",
             remark: "",
             pax: 2,
-            company: "Comp",
-            roomrate: 800,
+            company: "w-in",
+            roomrate: "Comp",
             abf: 2,
         },
         {
@@ -117,8 +117,8 @@ export const GuestInhouse: GuestRegist[] =
             departureTime: "12:00",
             remark: "",
             pax: 2,
-            company: "Comp",
-            roomrate: 1500,
+            company: "w-in",
+            roomrate: "Comp",
             abf: 2,
         },
         {
@@ -198,7 +198,7 @@ export const GuestInhouse: GuestRegist[] =
             remark: "DJ.I-Bar",
             pax: 2,
             company: "w-in",
-            roomrate: 1500,
+            roomrate: "1500",
             abf: 2,
         },
     ]
@@ -222,7 +222,7 @@ export const GuestRegister: GuestRegist[] =
             remark: "DJ.I-Bar",
             pax: 2,
             company: "w-in",
-            roomrate: 600,
+            roomrate: "600",
             abf: 2,
         },
         {
@@ -242,7 +242,7 @@ export const GuestRegister: GuestRegist[] =
             remark: "",
             pax: 2,
             company: "w-in",
-            roomrate: 600,
+            roomrate: "600",
             abf: 2,
         },
         {
@@ -262,7 +262,7 @@ export const GuestRegister: GuestRegist[] =
             remark: "",
             pax: 1,
             company: "w-in",
-            roomrate: 600,
+            roomrate: "600",
             abf: 1,
         },
         {
@@ -281,8 +281,8 @@ export const GuestRegister: GuestRegist[] =
             departureTime: "12:00",
             remark: "",
             pax: 2,
-            company: "Comp",
-            roomrate: 800,
+            company: "w-in",
+            roomrate: "800",
             abf: 2,
         },
         {
@@ -301,8 +301,8 @@ export const GuestRegister: GuestRegist[] =
             departureTime: "12:00",
             remark: "",
             pax: 2,
-            company: "Comp",
-            roomrate: 1500,
+            company: "w-in",
+            roomrate: "Comp",
             abf: 2,
         },
         {
@@ -322,7 +322,7 @@ export const GuestRegister: GuestRegist[] =
             remark: "DJ.I-Bar",
             pax: 2,
             company: "w-in",
-            roomrate: 1500,
+            roomrate: "1500",
             abf: 2,
         },
     ]

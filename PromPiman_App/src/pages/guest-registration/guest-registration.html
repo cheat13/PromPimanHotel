@@ -37,7 +37,7 @@
 
       <tbody *ngFor="let member of GuestRegists; let i = index">
         <tr>
-          <td></td>
+          <td>{{i+1}}</td>
           <td>{{ member.arriveDate }}</td>
           <td>{{ member.roomNo }}</td>
           <td width="250">{{ member.name }}</td>

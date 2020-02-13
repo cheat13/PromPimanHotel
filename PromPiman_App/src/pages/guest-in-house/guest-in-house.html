@@ -90,6 +90,7 @@
     <table pedding>
       <thead class="bgb">
         <tr>
+          <th>No.</th>
           <th width="150">RM N.</th>
           <th width="250">GuestName</th>
           <th>Pax</th>
@@ -105,8 +106,9 @@
         </tr>
       </thead>
 
-      <tbody *ngFor="let member of GuestRegists">
+      <tbody *ngFor="let member of GuestRegists;let i = index">
         <tr>
+          <td>{{i+1}}</td>
           <td width="150">{{ member.roomNo }}</td>
           <td width="250">{{ member.name }}</td>
           <td>{{ member.pax }}</td>
@@ -124,17 +126,18 @@
 
       <tbody>
          <tr>
+          <td></td>
           <td width="150"></td>
           <td width="250"></td>
-          <td>xxx</td>
+          <td>11</td>
           <td width="150"></td>
           <td width="150"></td>
           <td width="150"></td>
           <td width="150"></td>
           <td></td>
           <td width="150"></td>
-          <td>xxxx</td>
-          <td>xx</td>
+          <td>3300</td>
+          <td>11</td>
           <td width="250"></td>
         </tr>
       </tbody>
