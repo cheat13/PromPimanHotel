@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -7,15 +8,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-out-of-order.html',
 })
 export class AddOutOfOrderPage {
+  public FormItem: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController,public fb: FormBuilder, public navParams: NavParams, private viewCtrl: ViewController) {
+    this.FormItem = this.fb.group({
+      'roomNumber': [null],
+      'problem': [null],
+    });
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddOutOfOrderPage');
   }
-  add() {
-    this.navCtrl.push("OutOfOrderPage")
+  public okDialog() {
+    this.viewCtrl.dismiss(this.FormItem);
+    console.log(this.FormItem)
   }
 
 }

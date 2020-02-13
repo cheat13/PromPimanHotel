@@ -1,23 +1,16 @@
-<!--
-  Generated template for the ExecutiveRoomPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>เพิ่มห้องพักผู้บริหาร</ion-title>
+    <ion-title>ห้องพักผู้บริหาร</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="add()">ห้องพักผู้บริหาร</button>
-  <ion-item>
-    <ion-label>
-      <ion-row>
+  <ion-card text-center>
+    <ion-card-content>
+      <ion-row text-center>
         <ion-col col-2>
           ห้อง
         </ion-col>
@@ -25,45 +18,33 @@
           ผู้บริหาร
         </ion-col>
         <ion-col col-3>
-          วันที่ Checkin
+          วันที่เข้าพัก
         </ion-col>
         <ion-col col-3>
-          วันที่ Checkout
+          <button ion-button icon-only clear large (click)="presentContactModal()">
+            <ion-icon name="md-add-circle"></ion-icon>
+          </button>
         </ion-col>
       </ion-row>
-    </ion-label>
-  </ion-item>
+    </ion-card-content>
+  </ion-card>
 
   <ion-item>
     <ion-label>
-      <ion-row>
+      <ion-row text-center align-items-center *ngFor = "let item of data">
         <ion-col col-2>
-          519
+          {{item.noRoom}}
         </ion-col>
         <ion-col col-4>
-          พี่น้อย
+          {{item.name}}
         </ion-col>
         <ion-col col-3>
-          20/02/2563
+          {{item.checkIn}}
         </ion-col>
         <ion-col col-3>
-          23/02/2563
+          <button ion-button (click)="delete()">ลบ</button>
         </ion-col>
       </ion-row>
-      <ion-row>
-          <ion-col col-2>
-            430
-          </ion-col>
-          <ion-col col-4>
-            พี่บุ๋ม
-          </ion-col>
-          <ion-col col-3>
-            21/02/2563
-          </ion-col>
-          <ion-col col-3>
-            24/02/2563
-          </ion-col>
-        </ion-row>
-    </ion-label>   
+    </ion-label>
   </ion-item>
 </ion-content>

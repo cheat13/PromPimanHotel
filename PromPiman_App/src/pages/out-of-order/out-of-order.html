@@ -8,49 +8,43 @@
 </ion-header>
 
 <ion-content padding>
-
-  <button ion-button (click)="add()">แจ้งปัญหา</button>
-  <ion-item>
-    <ion-label>
-      <ion-row>
-        <ion-col col-3>
+  <ion-card>
+    <ion-card-content text-center>
+      <ion-row text-center>
+        <ion-col col-2>
           ห้อง
         </ion-col>
-        <ion-col col-7>
+        <ion-col col-4>
           ปัญหาการแจ้งซ่อม
         </ion-col>
-        <ion-col col-2>
+        <ion-col col-3>
           สถานะ
         </ion-col>
+        <ion-col col-3>
+          <button ion-button icon-only clear large (click)="presentContactModal()">
+            <ion-icon name="md-add-circle"></ion-icon>
+          </button>
+        </ion-col>
       </ion-row>
-    </ion-label>
-  </ion-item>
+    </ion-card-content>
+  </ion-card>
+
   <ion-item>
     <ion-label>
-      <ion-row>
-        <ion-col col-3>
-          502
-        </ion-col>
-        <ion-col col-7>
-          เครื่องทำน้ำอุ่นเสีย
-        </ion-col>
+      <ion-row text-center align-items-center *ngFor="let item of data">
         <ion-col col-2>
+          {{item.roomNumber}}
+        </ion-col>
+        <ion-col col-4>
+          {{item.problem}}
+        </ion-col>
+        <ion-col col-3>
           ยังไม่ได้ซ่อม
         </ion-col>
-      </ion-row>
-
-      <ion-row>
         <ion-col col-3>
-          419
-        </ion-col>
-        <ion-col col-7>
-          ไฟไม่ติด
-        </ion-col>
-        <ion-col col-2>
-          ดำเนินการซ่อมเรียบร้อยแล้ว
+          <button ion-button (click)="delete()">ซ่อมแล้ว</button>
         </ion-col>
       </ion-row>
     </ion-label>
   </ion-item>
-
 </ion-content>

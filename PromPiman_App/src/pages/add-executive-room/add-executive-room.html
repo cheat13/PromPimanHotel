@@ -5,21 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>ห้อง</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>ผู้บริหาร</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>วันที่ Checkin</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>วันที่ Checkout</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <button ion-button (click)="add()">เพิ่ม</button>
+  <form [formGroup]="FormItem" (ngSubmit)=okDialog()>
+    <ion-item>
+      <ion-label>ห้อง</ion-label>
+      <ion-input type="text" formControlName="noRoom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>ผู้บริหาร</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>วันที่เข้าพัก</ion-label>
+      <ion-input type="text" formControlName="checkIn"></ion-input>
+    </ion-item>
+    <button ion-button type="submit">เพิ่ม</button>
+  </form>
 </ion-content>
