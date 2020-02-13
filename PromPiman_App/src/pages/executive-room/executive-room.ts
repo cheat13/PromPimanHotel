@@ -23,7 +23,7 @@ export class ExecutiveRoomPage {
   }
 
   presentContactModal() {
-    let profileModal = this.modalCtrl.create("AddExecutiveRoomPage", { _id: "00001" });
+    let profileModal = this.modalCtrl.create("AddExecutiveRoomPage");
     profileModal.present();
     profileModal.onDidDismiss(data => {
       let item = new executiveRoom();
