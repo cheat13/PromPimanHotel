@@ -9,7 +9,6 @@
 
 <ion-content padding>
   <h3 text-center>รายรับอื่นๆ</h3>
-
   <ion-item>
     <ion-row text-center align-items-center>
       <ion-col col-6>
@@ -26,7 +25,6 @@
     </ion-row>
   </ion-item>
 
-
   <ion-item *ngFor="let item of CashierReports">
     <ion-row text-center align-items-center>
       <ion-col col-6>
@@ -35,8 +33,7 @@
       <ion-col col-4>
         {{item.amount}}
       </ion-col>
-      <ion-col col-1>
-
+      <ion-col col-1> 
       </ion-col>
     </ion-row>
   </ion-item>
@@ -48,14 +45,10 @@
         <button ion-button block>พิมพ์กะล่าสุด</button>
       </ion-buttons>
     </ion-col>
-
     <ion-col>
       <ion-buttons>
         <button ion-button block>พิมพ์กะปัจจุบัน</button>
       </ion-buttons>
     </ion-col>
   </ion-row>
-
-
-
 </ion-content>

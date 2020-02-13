@@ -85,7 +85,7 @@
     </ion-row>
   </div>
 
-<br>
+  <br>
   <div>
     <table pedding>
       <thead class="bgb">
@@ -109,24 +109,42 @@
         <tr>
           <td width="150">{{ member.roomNo }}</td>
           <td width="250">{{ member.name }}</td>
-          <td>2</td>
+          <td>{{ member.pax }}</td>
           <td width="150">{{ member.arriveDate }}</td>
           <td width="150">{{ member.arriveTime }}</td>
           <td width="150">{{ member.departureDate }}</td>
           <td width="150">{{ member.departureTime }}</td>
           <td>{{ member.nationality }}</td>
-          <td width="150">w-in</td>
-          <td>600</td>
-          <td>2</td>
-          <td width="250">DJ.I-Bar</td>
+          <td width="150">{{ member.company }}</td>
+          <td>{{ member.roomrate }}</td>
+          <td>{{ member.abf }}</td>
+          <td width="250">{{ member.remark }}</td>
+        </tr>
+      </tbody>
+
+      <tbody>
+         <tr>
+          <td width="150"></td>
+          <td width="250"></td>
+          <td>xxx</td>
+          <td width="150"></td>
+          <td width="150"></td>
+          <td width="150"></td>
+          <td width="150"></td>
+          <td></td>
+          <td width="150"></td>
+          <td>xxxx</td>
+          <td>xx</td>
+          <td width="250"></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <br>
-  <ion-buttons>
-    <button ion-button block>พิมพ์</button>
-  </ion-buttons>
+  <ion-row>
+    <ion-col text-right>
+      <button ion-button>พิมพ์</button>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

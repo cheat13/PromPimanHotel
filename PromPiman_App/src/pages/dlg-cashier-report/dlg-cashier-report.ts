@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DlgCashierReportPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public FormItem: FormGroup;
+
+  constructor(public navCtrl: NavController, public fb: FormBuilder, public navParams: NavParams, private viewCtrl: ViewController) {
+    this.FormItem = this.fb.group({
+      "order": [null, Validators.required],
+      "amount": [null, Validators.required],
+    })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DlgCashierReportPage');
   }
 
+  public closeDialog() {
+    this.viewCtrl.dismiss();
+  }
+
+  public okDialog() {
+    this.viewCtrl.dismiss(this.FormItem);
+    console.log(this.FormItem.value);
+  }
 }
