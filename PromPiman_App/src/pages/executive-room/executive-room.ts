@@ -16,7 +16,6 @@ export class ExecutiveRoomPage {
     item.name = "พี่บุ๋ม";
     item.checkIn = "02/02/2020";
     this.data.unshift(item);
-
   }
 
   ionViewDidLoad() {
@@ -24,18 +23,22 @@ export class ExecutiveRoomPage {
   }
 
   presentContactModal() {
-    let profileModal = this.modalCtrl.create("AddExecutiveRoomPage", {_id: "00001"});
-    profileModal.onDidDismiss(data => {
-      console.log(data.value);
-      let item = new executiveRoom();
-      item.noRoom = data.value.noRoom;
-      item.name = data.value.name;
-      item.checkIn = data.value.checkIn;
-      this.data.unshift(item);
-    });
+    let profileModal = this.modalCtrl.create("AddExecutiveRoomPage", { _id: "00001" });
     profileModal.present();
+    profileModal.onDidDismiss(data => {
+      let item = new executiveRoom();
+      if (data != null) {
+        item.noRoom = data.value.noRoom;
+        item.name = data.value.name;
+        item.checkIn = data.value.checkIn;
+        this.data.unshift(item);
+      }
+    });
   }
 
-  
-
+  delete(room: number) {
+    var dataA = this.data.findIndex(it => it.noRoom == room);
+    console.log(dataA);
+    this.data.splice(dataA, 1);
+  }
 }

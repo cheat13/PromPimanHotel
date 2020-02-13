@@ -12,9 +12,9 @@ export class OutOfOrderPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     let item = new outOfOrder();
-       item.roomNumber = 888;
-       item.problem = "ไฟไม่ติด + เครื่องทำน้ำอุ่นเสีย";
-       this.data.unshift(item);
+    item.roomNumber = 888;
+    item.problem = "ไฟไม่ติด + เครื่องทำน้ำอุ่นเสีย";
+    this.data.unshift(item);
   }
 
   ionViewDidLoad() {
@@ -22,17 +22,22 @@ export class OutOfOrderPage {
   }
 
   presentContactModal() {
-    let contactModal = this.modalCtrl.create("AddOutOfOrderPage", {_id: "00002"});
-     contactModal.onDidDismiss(data => {
-       console.log(data.value);
-       let item = new outOfOrder();
-       item.roomNumber = data.value.roomNumber;
-       item.problem = data.value.problem;
-       this.data.unshift(item);
-     });
+    let contactModal = this.modalCtrl.create("AddOutOfOrderPage");
     contactModal.present();
+    contactModal.onDidDismiss(data => {
+      let item = new outOfOrder();
+      if (data != null) {
+        item.roomNumber = data.value.roomNumber;
+        item.problem = data.value.problem;
+        this.data.unshift(item);
+      }
+    });
   }
 
-  
+  delete(room: number) {
+    var dataA = this.data.findIndex(it => it.roomNumber == room);
+    console.log(dataA);
+    this.data.splice(dataA, 1);
+  }
 }
 

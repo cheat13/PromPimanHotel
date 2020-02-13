@@ -17,27 +17,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddExecutiveRoomPage {
   public FormItem: FormGroup;
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder, private viewCtrl: ViewController) {
     this.FormItem = this.fb.group({
       'noRoom': [null],
       'name': [null],
       'checkIn': [null],
     });
-
-    // let _id = navParams.get('_id');
-    // this.FormItem.get('_id').setValue(_id);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddExecutiveRoomPage');
   }
-  // add(){
-  //   this.navCtrl.push("ExecutiveRoomPage")
-  // }
+
   public okDialog() {
     this.viewCtrl.dismiss(this.FormItem);
     console.log(this.FormItem)
   }
 
+  public closeDialog2() {
+    this.viewCtrl.dismiss();
+  }
 }

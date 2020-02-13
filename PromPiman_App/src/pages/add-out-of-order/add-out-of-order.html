@@ -14,6 +14,17 @@
       <ion-label>ปัญหาการแจ้งซ่อม</ion-label>
       <ion-input type="text" formControlName="problem"></ion-input>
     </ion-item>
-    <button ion-button type="submit">เพิ่ม</button>
+    <ion-grid padding-top>
+      <ion-row>
+        <ion-col col-6>
+        </ion-col>
+        <ion-col>
+          <button ion-button block type="button" color="light" (click)="closeDialog2()">ยกเลิก</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block type="submit">เพิ่ม</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>
