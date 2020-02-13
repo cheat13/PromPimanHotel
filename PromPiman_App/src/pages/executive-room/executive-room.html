@@ -28,10 +28,9 @@
       </ion-row>
     </ion-card-content>
   </ion-card>
-
   <ion-item>
     <ion-label>
-      <ion-row text-center align-items-center *ngFor = "let item of data">
+      <ion-row text-center align-items-center *ngFor="let item of data">
         <ion-col col-2>
           {{item.noRoom}}
         </ion-col>
@@ -42,7 +41,7 @@
           {{item.checkIn}}
         </ion-col>
         <ion-col col-3>
-          <button ion-button (click)="delete()">ลบ</button>
+          <button ion-button (click)="delete(item.noRoom)">ลบ</button>
         </ion-col>
       </ion-row>
     </ion-label>

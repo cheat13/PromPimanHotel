@@ -11,18 +11,23 @@ export class AddOutOfOrderPage {
   public FormItem: FormGroup;
 
 
-  constructor(public navCtrl: NavController,public fb: FormBuilder, public navParams: NavParams, private viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public fb: FormBuilder, public navParams: NavParams, private viewCtrl: ViewController) {
     this.FormItem = this.fb.group({
       'roomNumber': [null],
       'problem': [null],
     });
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddOutOfOrderPage');
   }
+
   public okDialog() {
     this.viewCtrl.dismiss(this.FormItem);
     console.log(this.FormItem)
   }
 
+  public closeDialog2() {
+    this.viewCtrl.dismiss();
+  }
 }
