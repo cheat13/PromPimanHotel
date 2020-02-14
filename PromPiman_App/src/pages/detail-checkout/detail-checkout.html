@@ -5,11 +5,101 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <meta charset="utf-8">
   <ion-navbar>
     <ion-title>DetailCheckoutPage</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div>
+    <div>
+      <header>
+        <ion-row  align-items-center> 
+          <ion-col text-center >
+            <a target="_blank" href="https://lobianijs.com">
+              <img src="../../assets/imgs/logoHotel.jpg" data-holder-rendered="true" />
+            </a>
+          </ion-col>
+          <ion-col>
+            <div style="font-size:large;">
+              <div></div>
+              <div></div>
+              <h2 class="to">ห้อง: {{detailCheckout.roomNumber}}</h2>
+              <div>ผู้พัก: {{detailCheckout.name}}</div>
+              <div>เบอร์มือถือ: {{detailCheckout.phone}}</div>
+              <div class="date">วันเข้าพัก: {{detailCheckout.arrivalDateTime|  date: 'dd/MM/yy HH:mm'}}</div>
+              <div class="date">วันออก: {{detailCheckout.departureDateTime|  date: 'dd/MM/yy HH:mm'}}</div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </header>
+      <div>
+        <main>
+          <table style="font-size:large;" align-items-center>
+            <thead>
+              <tr text-center>
+                <th>ลำดับ</th>
+                <th>ประเภท</th>
+                <th>เวลา</th>
+                <th>ราคา</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- <tr *ngFor="let item of collection ;let i= index "> -->
+                <td>1</td>
+                <td>
+                  ซักรีด
+                </td>
+                <td>11/02/20 </td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <!-- <tr *ngFor="let item of collection ;let i= index "> -->
+                <td>2</td>
+                <td>
+                  ห้อง
+                </td>
+                <td>11/02/20 </td>
+                <td>700</td>
+              </tr>
+              <tr>
+                <!-- <tr *ngFor="let item of collection ;let i= index "> -->
+                <td>3</td>
+                <td>
+                  มินิบาร์
+                </td>
+                <td>11/02/20 </td>
+                <td>25</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2"></td>
+                <td>รวม</td>
+                <td>720.75</td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td>vat 7%</td>
+                <td>54.25</td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td>รวมทั้งหมด</td>
+                <td>775</td>
+              </tr>
+            </tfoot>
+          </table>
+        </main>
+        <footer>
+          <button ion-button float-right>
+            Print</button>
+        </footer>
+      </div>
+      <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+      <div></div>
+    </div>
+  </div>
 </ion-content>
