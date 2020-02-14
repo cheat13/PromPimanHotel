@@ -22,14 +22,16 @@ export class RegisterPage {
     m1.tHName = "นายกฤษณะ ตระกูลพรหม";
     m1.eNName = "Kritsana Tragoolphrom";
     m1.phoneNumber = "0837325693";
-
+    m1.picture = "../../assets/imgs/man.png";
+    
     let m2 = new Member();
     m2._id = "0002";
     m2.idNumber = "0123456789123";
     m2.tHName = "นายวรพุทธิ์ แสงชาติ";
     m2.eNName = "Woraput SangChart";
     m2.phoneNumber = "0854579229";
-    
+    m2.picture = "../../assets/imgs/man.png";
+
     this.members = [m2, m1];
   }
 
