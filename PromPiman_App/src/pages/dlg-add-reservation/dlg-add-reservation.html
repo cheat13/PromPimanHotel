@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ระบบจองห้องพัก</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="FormItem" (ngSubmit)="okDialog()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label fixed>ชื่อ-สกุล</ion-label>
+            <ion-input placeholder="กรุณาระบุชื่อ-สกุล" type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>เบอร์โทรศัพท์</ion-label>
+            <ion-input placeholder="กรุณาระบุเบอร์โทรศัพท์" type="tel" formControlName="phoneNumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>วันที่เข้า</ion-label>
+            <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY" formControlName="arrivalDateTime">
+            </ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>วันที่ออก</ion-label>
+            <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY" formControlName="departureDateTime">
+            </ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-row text-start align-items-center>
+              <ion-col col-3>
+                ห้อง
+              </ion-col>
+              <ion-col *ngFor="let room of roomsSelect" col-1>
+                {{ room }}
+              </ion-col>
+              <ion-col text-end>
+                <button ion-button type="button" icon-only (click)="selectRooms()">
+                  <ion-icon name="md-search"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid padding-top>
+      <ion-row>
+        <ion-col col-6>
+        </ion-col>
+        <ion-col>
+          <button ion-button block type="button" color="light" (click)="closeDialog()">ยกเลิก</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block type="submit" color="primary" [disabled]="this.FormItem.invalid">บันทึก</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

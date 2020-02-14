@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Reservation } from '../../models/Reservation';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Reservation, ReservationLst } from '../../models/Reservation';
 
 /**
  * Generated class for the BookingPage page.
@@ -18,7 +18,7 @@ export class BookingPage {
 
   reservations: Reservation[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.getMembers();
   }
 
@@ -27,23 +27,7 @@ export class BookingPage {
   }
 
   getMembers() {
-    let r1 = new Reservation();
-    r1.name = "นายกฤษณะ ตระกูลพรหม";
-    r1.phoneNumber = "0837325693";
-    r1.roomLst = ["501", "502", "503", "504"];
-    r1.arrivalDateTime = new Date(2020, 1, 20);
-    r1.departureDateTime = new Date(2020, 1, 21);
-    r1.creationDateTime = new Date(2020, 1, 11);
-    
-    let r2 = new Reservation();
-    r2.name = "นายวรพุทธิ์ แสงชาติ";
-    r2.phoneNumber = "0854579229";
-    r2.roomLst = ["601"];
-    r2.arrivalDateTime = new Date(2020, 1, 19);
-    r2.departureDateTime = new Date(2020, 1, 22);
-    r2.creationDateTime = new Date(2020, 1, 12);
-
-    this.reservations = [r2, r1];
+    this.reservations = ReservationLst.sort((a, b) => Number(a.arrivalDateTime) - Number(b.arrivalDateTime));
   }
 
   searching(ev: any) {
@@ -59,5 +43,25 @@ export class BookingPage {
 
   haveAnyWord(item: any, word: any): boolean {
     return item.toLowerCase().indexOf(word.toLowerCase()) > -1;
+  }
+
+  presentModalAddReservation() {
+    const modal = this.modalCtrl.create("DlgAddReservationPage");
+    modal.present();
+  }
+
+  // presentModalEditReservation(reserver: Reservation, index: number) {
+  //   const modal = this.modalCtrl.create("DlgEditReservationPage", { reserver: reserver });
+  //   modal.onDidDismiss(data => {
+  //     if (data) {
+  //       let member = data.value;
+  //       this.reservations[index] = member;
+  //     }
+  //   });
+  //   modal.present();
+  // }
+
+  clear(index: number) {
+    this.reservations.splice(index, 1);
   }
 }

@@ -16,7 +16,7 @@
         <ion-searchbar (ionInput)="searching($event)"></ion-searchbar>
       </ion-col>
       <ion-col col-1>
-        <button ion-button icon-start large block outline>
+        <button ion-button icon-start large block outline (click)="presentModalAddReservation()">
           <ion-icon name="md-checkmark-circle-outline"></ion-icon>
           จองห้องพัก
         </button>
@@ -27,11 +27,14 @@
   <ion-card>
     <ion-card-content>
       <ion-row text-center>
-        <ion-col col-3>
+        <ion-col col-2>
           ชื่อ
         </ion-col>
-        <ion-col col-3>
+        <ion-col col-2>
           เบอร์โทรศัพท์
+        </ion-col>
+        <ion-col col-2>
+          ห้อง
         </ion-col>
         <ion-col>
           เข้าวันที่
@@ -42,40 +45,43 @@
         <ion-col>
           จองเมื่อ
         </ion-col>
-        <ion-col col-2></ion-col>
+        <ion-col col-1></ion-col>
       </ion-row>
     </ion-card-content>
   </ion-card>
 
+  <!-- <ion-col col-1>
+    <button ion-button block color="light" (click)="presentModalEditReservation(reserver,i)">แก้ไข</button>
+  </ion-col> -->
+
   <ion-grid>
     <ion-list>
-      <ion-item *ngFor="let reserv of reservations">
+      <ion-item *ngFor="let reserver of reservations;let i = index">
         <ion-row text-center align-items-center>
-          <ion-col col-3>
-            {{ reserv.name }}
+          <ion-col col-2>
+            {{ reserver.name }}
           </ion-col>
-          <ion-col col-3>
-            {{ reserv.phoneNumber }}
+          <ion-col col-2>
+            {{ reserver.phoneNumber }}
           </ion-col>
-          <ion-col>
-            {{ reserv.arrivalDateTime| date:'dd/MM/yyyy' }}
-          </ion-col>
-          <ion-col>
-            {{ reserv.departureDateTime| date:'dd/MM/yyyy' }}
+          <ion-col col-2>
+            {{ reserver.roomLst }}
           </ion-col>
           <ion-col>
-            {{ reserv.creationDateTime | date:'dd/MM/yyyy' }}
+            {{ reserver.arrivalDateTime| date:'dd/MM/yyyy' }}
+          </ion-col>
+          <ion-col>
+            {{ reserver.departureDateTime| date:'dd/MM/yyyy' }}
+          </ion-col>
+          <ion-col>
+            {{ reserver.creationDateTime | date:'dd/MM/yyyy' }}
           </ion-col>
           <ion-col col-1>
-            <button ion-button block color="light">แก้ไข</button>
-          </ion-col>
-          <ion-col col-1>
-            <button ion-button block >เรียบร้อย</button>
+            <button ion-button block (click)="clear(i)">เรียบร้อย</button>
           </ion-col>
         </ion-row>
       </ion-item>
     </ion-list>
   </ion-grid>
-
 
 </ion-content>

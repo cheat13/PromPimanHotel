@@ -22,6 +22,8 @@ export class CheckOutPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckOutPage');
     this.checkouts = lstCheckout;
+    console.log(this.checkouts);
+    
   }
 
   detailBill(item: Checkout) {
