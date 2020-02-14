@@ -17,7 +17,7 @@
         <ion-col>
           <ion-item [class.invalid]="isValid('roomNum')">
             <ion-label>ห้อง</ion-label>
-            <ion-input formControlName="roomNum" va value='{{roomNum}}'></ion-input>
+            <ion-input formControlName="roomNum"></ion-input>
           </ion-item>
           <ion-item [class.invalid]=" isValid('type')">
             <ion-label>ประเภท</ion-label>
@@ -30,7 +30,8 @@
           </ion-item>
           <ion-item [class.invalid]="isValid('time')">
             <ion-label>เวลา</ion-label>
-            <ion-input type="date" formControlName="time"></ion-input>
+            <ion-datetime displayFormat="DD/MM/YY HH:mm" formControlName="time">
+            </ion-datetime>
           </ion-item>
 
         </ion-col>

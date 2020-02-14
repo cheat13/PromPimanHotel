@@ -14,14 +14,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-row align-items-center>
+  <ion-row align-items-center text-center>
     <ion-col col-2>
 
     </ion-col>
     <ion-col col-8>
       <ion-item>
         <ion-label>ห้อง</ion-label>
-        <ion-select interface="action-sheet" [(ngModel)]="roomNum" (ionChange)="showExtraDetail($event)">
+        <ion-select text-center interface="action-sheet" [(ngModel)]="roomNum" (ionChange)="showExtraDetail($event)">
           <ng-container *ngFor="let item of lstRoom">
             <ion-option value="{{item}}">{{item}}</ion-option>
           </ng-container>
@@ -39,7 +39,7 @@
 
   <ion-card>
     <ion-card-content>
-      <ion-row text-center>
+      <ion-row align-items-center text-center>
         <ion-col>
           ประเภท
         </ion-col>
@@ -50,7 +50,6 @@
           เวลา
         </ion-col>
         <ion-col>
-
         </ion-col>
       </ion-row>
     </ion-card-content>
@@ -58,8 +57,8 @@
 
 
   <ion-list>
-    <ion-item *ngFor="let item of lstExtra; let i= index ">
-      <ion-row text-center>
+    <ion-item ngpid *ngFor="let item of lstExtra; let i= index ">
+      <ion-row align-items-center text-center>
         <ion-col>
           {{item.type}}
         </ion-col>
@@ -67,9 +66,10 @@
           {{item.amount}}
         </ion-col>
         <ion-col>
-          {{item.time | date: 'dd/MM/yyyy'}}
+          {{item.time |  date: 'dd/MM/yy HH:mm'}}
         </ion-col>
         <ion-col>
+          <button ion-button color="light" (click)="editExtra(item)"> แก้ไข </button>
           <button ion-button (click)="deleteExtra(i)">ลบ</button>
         </ion-col>
       </ion-row>
@@ -77,20 +77,24 @@
   </ion-list>
 
   <ion-footer>
-    <ion-list>
-      <ion-item>
-        <ion-row text-center>
-          <ion-col col-2>
-            ราคารวม
-          </ion-col>
-          <ion-col col-7>
-          </ion-col>
-          <ion-col col-3>
-            {{totalPrice}}
-          </ion-col>
-        </ion-row>
-      </ion-item>
-    </ion-list>
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-row align-items-center text-center>
+              <ion-col col-2>
+                ราคารวม
+              </ion-col>
+              <ion-col col-7>
+              </ion-col>
+              <ion-col col-3>
+                {{totalPrice}}
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
   </ion-footer>
 
 </ion-content>

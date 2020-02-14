@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Extra, lstRoomsExtra } from '../../models/Extra';
+import { get } from '@ionic-native/core';
 
 /**
  * Generated class for the ExtraPage page.
@@ -31,13 +32,17 @@ export class ExtraPage {
   }
 
   addExtra() {
-    const modal = this.modalCtrl.create("DlgAddExtraPage", { roomNum: this.roomNum });
+    const modal = this.modalCtrl.create("DlgAddExtraPage", { roomNum: this.roomNum, dataEdit: null });
     modal.onDidDismiss(data => {
       if (data) {
+
         let ex = new Extra();
         ex.type = data.get('type').value;
         ex.amount = data.get('amount').value;
-        ex.time = data.get('time').value;
+        let date: Date = new Date(data.get('time').value);
+        date.setHours(date.getHours() - 7);
+        ex.time = date;
+
         this.lstExtra.unshift(ex);
         this.calculateTotal();
       }
@@ -47,6 +52,28 @@ export class ExtraPage {
 
   calculateTotal() {
     this.totalPrice = this.lstExtra.reduce((sum, number) => sum + Number(number.amount), 0);
+  }
+
+  editExtra(item: Extra) {
+    const modal = this.modalCtrl.create("DlgAddExtraPage", { roomNum: this.roomNum, dataEdit: item });
+    modal.onDidDismiss(data => {
+      if (data) {
+
+        let ex = new Extra();
+        ex.type = data.get('type').value;
+        ex.amount = data.get('amount').value;
+        let date: Date = new Date(data.get('time').value);
+        date.setHours(date.getHours() - 7);
+
+        ex.time = date;
+        let index = this.lstExtra.indexOf(item);
+        if (index !== -1) {
+          this.lstExtra[index] = ex;
+        }
+        this.calculateTotal();
+      }
+    });
+    modal.present();
   }
 
   showExtraDetail(ev: any) {

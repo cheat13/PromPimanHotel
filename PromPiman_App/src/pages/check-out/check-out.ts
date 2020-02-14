@@ -24,6 +24,9 @@ export class CheckOutPage {
     this.checkouts = lstCheckout;
   }
 
+  detailBill(item: Checkout) {
+    this.navCtrl.push("DetailCheckoutPage", { data: item })
+  }
 
   searching(ev: any) {
 
