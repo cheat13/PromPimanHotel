@@ -1,4 +1,3 @@
-import { Member } from './../../models/Member';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Member, MemberLst } from '../../models/Member';
