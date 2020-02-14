@@ -24,6 +24,8 @@ export class CheckOutPage {
     console.log('ionViewDidLoad CheckOutPage');
     this.checkouts = lstCheckout;
     this.checkouts.sort((a, b) => Number(a.departureDateTime) - Number(b.departureDateTime))
+    console.log(this.checkouts);
+    
   }
 
   detailBill(item: Checkout) {
