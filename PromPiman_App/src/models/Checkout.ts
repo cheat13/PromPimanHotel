@@ -13,7 +13,7 @@ export const lstCheckout: Checkout[] =
             name: "Woraput Sangchart",
             phone: "0857579229",
             arrivalTime: Date.now(),
-            departureDateTime:Date.now() + 3,
+            departureDateTime: Date.now() + 3,
         },
         {
             roomNumber: "405",
@@ -23,4 +23,3 @@ export const lstCheckout: Checkout[] =
             departureDateTime: Date.now() + 3,
         },
     ]
-

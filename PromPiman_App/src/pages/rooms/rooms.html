@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ห้องพัก</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row *ngIf="roomsSelect != []">
+      <button ion-button col-1 (click)="confirm()">
+        ยืนยัน
+      </button>
+      <button ion-button icon-end round color="secondary" *ngFor="let room of roomsSelect" (click)="deleteRoom(room)">
+        {{ room }}
+        <ion-icon name="ios-close"></ion-icon>
+      </button>
+    </ion-row>
+    <ion-row text-center align-items-center>
+      <ion-col col-2 *ngFor="let room of rooms">
+        <button ion-button block outline color="dark" [class.selected]="selected(room)"
+          [class.notAvailable]="notAvailable(room)" [disabled]="notAvailable(room)"
+          (click)="selectRoom(room)">{{ room }}</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

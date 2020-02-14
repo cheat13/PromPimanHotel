@@ -24,10 +24,10 @@
 
               <ion-col>
                 <ion-row text-left align-items-center>
-                  <ion-col col-4>
+                  <ion-col col-6>
                     <h1>ข้อมูลผู้พักโรงแรม</h1>
                   </ion-col>
-                  <ion-col>
+                  <ion-col text-right>
                     <button ion-button icon-only (click)="presentModalAddMember()">
                       <ion-icon name="md-search"></ion-icon>
                     </button>
@@ -49,13 +49,11 @@
               <ion-col col-2>
                 <h1>ห้อง</h1>
               </ion-col>
-              <ion-col>
-                <ion-item>
-                  <ion-input [disabled]="true"></ion-input>
-                </ion-item>
+              <ion-col *ngFor="let room of roomsSelect" col-1>
+                <b>{{ room }}</b>
               </ion-col>
-              <ion-col col-1>
-                <button ion-button icon-only>
+              <ion-col text-end>
+                <button ion-button icon-only (click)="selectRooms()">
                   <ion-icon name="md-search"></ion-icon>
                 </button>
               </ion-col>
@@ -71,6 +69,7 @@
                   </ion-datetime>
                 </ion-item>
               </ion-col>
+              <ion-col col-4></ion-col>
             </ion-row>
 
             <ion-row text-start align-items-center>
@@ -84,6 +83,7 @@
                   </ion-datetime>
                 </ion-item>
               </ion-col>
+              <ion-col col-4></ion-col>
             </ion-row>
 
             <ion-row padding-top>
