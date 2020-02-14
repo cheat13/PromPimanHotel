@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Checkout, lstCheckout } from '../../models/Checkout';
+import { a } from '@angular/core/src/render3';
 
 /**
  * Generated class for the CheckOutPage page.
@@ -22,6 +23,7 @@ export class CheckOutPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckOutPage');
     this.checkouts = lstCheckout;
+    this.checkouts.sort((a, b) => Number(b.departureDateTime) - Number(a.departureDateTime))
   }
 
   detailBill(item: Checkout) {
