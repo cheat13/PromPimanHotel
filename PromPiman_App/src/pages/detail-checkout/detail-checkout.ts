@@ -1,3 +1,4 @@
+import { Checkout } from './../../models/Checkout';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -16,18 +17,14 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class DetailCheckoutPage {
   public FormItem: FormGroup;
+  detailCheckout: Checkout = null;
   constructor(public navCtrl: NavController, public fb: FormBuilder, public navParams: NavParams) {
-    this.FormItem = this.fb.group({
-      'roomNum': [null, Validators.required],
-      'type': [null, Validators.required],
-      'amount': [null, Validators.compose([Validators.pattern('[0-9]*'), Validators.required])],
-      'time': [null, Validators.required],
-    });
-    this.FormItem.get('roomNum').setValue(navParams.get('roomNum'));
+    this.detailCheckout = this.navParams.get('data');
+    console.log(this.detailCheckout);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailCheckoutPage');
   }
+
 
 }
