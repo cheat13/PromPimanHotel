@@ -1,6 +1,7 @@
+import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { Member } from '../../models/Member';
+import { Member, MemberLst } from '../../models/Member';
 
 @IonicPage()
 @Component({
@@ -16,23 +17,7 @@ export class RegisterPage {
   }
 
   getMembers() {
-    let m1 = new Member();
-    m1._id = "0001";
-    m1.idNumber = "0123456789123";
-    m1.tHName = "นายกฤษณะ ตระกูลพรหม";
-    m1.eNName = "Kritsana Tragoolphrom";
-    m1.phoneNumber = "0837325693";
-    m1.picture = "../../assets/imgs/man.png";
-    
-    let m2 = new Member();
-    m2._id = "0002";
-    m2.idNumber = "0123456789123";
-    m2.tHName = "นายวรพุทธิ์ แสงชาติ";
-    m2.eNName = "Woraput SangChart";
-    m2.phoneNumber = "0854579229";
-    m2.picture = "../../assets/imgs/man.png";
-
-    this.members = [m2, m1];
+    this.members = MemberLst.sort((a, b) => (Number)(b._id) - (Number)(a._id));
   }
 
   ionViewDidLoad() {
@@ -56,21 +41,11 @@ export class RegisterPage {
   }
 
   presentModalAddMember() {
-    const modal = this.modalCtrl.create("DlgAddMemberPage", { _id: "0003" });
+    var count = this.members.length + 1;
+    const modal = this.modalCtrl.create("DlgAddMemberPage", { _id: "000" + count });
     modal.onDidDismiss(data => {
       if (data) {
-        let member = new Member();
-        member._id = data.get('_id').value;
-        member.idNumber = data.get('idNumber').value;
-        member.tHName = data.get('tHName').value;
-        member.eNName = data.get('eNName').value;
-        member.dateOfBirth = data.get('dateOfBirth').value;
-        member.address = data.get('address').value;
-        member.dateOfIssue = data.get('dateOfIssue').value;
-        member.dateOfExpiry = data.get('dateOfExpiry').value;
-        member.picture = data.get('picture').value;
-        member.phoneNumber = data.get('phoneNumber').value;
-        member.signature = data.get('signature').value;
+        let member = data.value;
         this.members.unshift(member);
       }
     });
@@ -81,19 +56,7 @@ export class RegisterPage {
     const modal = this.modalCtrl.create("DlgEditMemberPage", { member: member });
     modal.onDidDismiss(data => {
       if (data) {
-        let member = new Member();
-        member._id = data.get('_id').value;
-        member.idNumber = data.get('idNumber').value;
-        member.tHName = data.get('tHName').value;
-        member.eNName = data.get('eNName').value;
-        member.dateOfBirth = data.get('dateOfBirth').value;
-        member.address = data.get('address').value;
-        member.dateOfIssue = data.get('dateOfIssue').value;
-        member.dateOfExpiry = data.get('dateOfExpiry').value;
-        member.picture = data.get('picture').value;
-        member.phoneNumber = data.get('phoneNumber').value;
-        member.signature = data.get('signature').value;
-
+        let member = data.value;
         var index = this.members.findIndex(it => it._id == member._id);
         this.members[index] = member;
       }
