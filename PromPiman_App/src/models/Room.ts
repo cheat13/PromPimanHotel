@@ -31,6 +31,6 @@ export const AllRooms: string[] = [
     "230", "330", "430", "530", "630", "730",
 ];
 
-export const RoomsNotAvailable: string[] = ["405", "425"];
+export const RoomsNotAvailable: string[] = ["405", "425", "501", "502", "503", "504", "601"];
 
 export const RoomsSelect: string[] = [];
