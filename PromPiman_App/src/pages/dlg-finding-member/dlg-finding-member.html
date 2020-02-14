@@ -1,0 +1,48 @@
+s<ion-header>
+  <ion-navbar>
+    <ion-title>ค้นหาสมาชิก</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <ion-grid>
+    <ion-row text-center align-items-center>
+      <ion-col> -->
+  <ion-searchbar (ionInput)="searching($event)"></ion-searchbar>
+  <!-- </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-5>
+          ชื่อ - สกุล
+        </ion-col>
+        <ion-col col-5>
+          เบอร์โทรศัพท์
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-list>
+      <ion-item *ngFor="let member of members">
+        <ion-row text-center align-items-center>
+          <ion-col col-5>
+            {{ member.tHName }}
+          </ion-col>
+          <ion-col col-5>
+            {{ member.phoneNumber }}
+          </ion-col>
+          <ion-col>
+            <button ion-button block (click)="okDialog(member)">เลือก</button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+</ion-content>

@@ -19,7 +19,7 @@
             <ion-row text-center align-items-center>
 
               <ion-col col-2>
-                <img src="../../assets/imgs/1377139107-2-o.jpg">
+                <img src="{{ picture }}">
               </ion-col>
 
               <ion-col>
@@ -28,25 +28,18 @@
                     <h1>ข้อมูลผู้พักโรงแรม</h1>
                   </ion-col>
                   <ion-col>
-                    <button ion-button icon-only>
+                    <button ion-button icon-only (click)="presentModalAddMember()">
                       <ion-icon name="md-search"></ion-icon>
                     </button>
                   </ion-col>
                 </ion-row>
-                <ion-row>
+                <ion-row text-left align-items-center>
                   <ion-item>
-                    <!-- <ion-label>ชื่อ-สกุล (ไทย)</ion-label> -->
-                    <ion-input type="text" disabled></ion-input>
+                    ชื่อ: <b>{{ name }}</b>
                   </ion-item>
                   <ion-item>
-                    <!-- <ion-label>หมายเลขโทรศัพท์</ion-label> -->
-                    <ion-input type="text" disabled>
-                    </ion-input>
+                    เบอร์โทรศัพท์: <b>{{ phone }}</b>
                   </ion-item>
-                </ion-row>
-
-                <ion-row>
-
                 </ion-row>
 
               </ion-col>
@@ -74,7 +67,8 @@
               </ion-col>
               <ion-col>
                 <ion-item>
-                  <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY"></ion-datetime>
+                  <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY" [(ngModel)]="arrivalDateTime">
+                  </ion-datetime>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -85,7 +79,9 @@
               </ion-col>
               <ion-col>
                 <ion-item>
-                  <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY"></ion-datetime>
+                  <ion-datetime placeholder="กรุณาระบุวันที่" displayFormat="DD/MM/YYYY"
+                    [(ngModel)]="departureDateTime">
+                  </ion-datetime>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -93,7 +89,7 @@
             <ion-row padding-top>
               <ion-col col-5></ion-col>
               <ion-col>
-                <button ion-button block type="submit" color="primary">ยืนยัน</button>
+                <button ion-button block color="primary" (click)="confirm()">ยืนยัน</button>
               </ion-col>
               <ion-col col-5></ion-col>
             </ion-row>
