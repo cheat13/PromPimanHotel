@@ -2,7 +2,8 @@ export class Checkout {
     roomNumber: string;
     name: string;
     phone: string | number;
-    arrival: any;
+    arrivalTime: Date | number;
+    departureDateTime: Date | number;
 }
 
 export const lstCheckout: Checkout[] =
@@ -11,13 +12,15 @@ export const lstCheckout: Checkout[] =
             roomNumber: "425",
             name: "Woraput Sangchart",
             phone: "0857579229",
-            arrival: Date.now(),
+            arrivalTime: Date.now(),
+            departureDateTime:Date.now()
         },
         {
             roomNumber: "405",
             name: "John Doe",
             phone: "0895579559",
-            arrival: Date.now(),
+            arrivalTime: Date.now(),
+            departureDateTime: Date.now() + 3,
         },
     ]
 
