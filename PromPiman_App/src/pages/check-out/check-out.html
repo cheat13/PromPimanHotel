@@ -42,6 +42,9 @@
         <ion-col>
           เข้าพักวันที่
         </ion-col>
+        <ion-col>
+          ออกวันที่
+        </ion-col>
       </ion-row>
     </ion-card-content>
   </ion-card>
@@ -60,7 +63,10 @@
           {{item.phone}}
         </ion-col>
         <ion-col>
-          {{item.arrival | date: 'dd/MM/yyyy'}}
+          {{item.arrivalTime | date: 'dd/MM/yyyy'}}
+        </ion-col>
+        <ion-col>
+          {{item.departureDateTime | date: 'dd/MM/yyyy'}}
         </ion-col>
       </ion-row>
     </ion-item>
