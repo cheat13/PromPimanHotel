@@ -50,7 +50,7 @@ export class CheckInPage {
       checkIn.roomNumber = room;
       checkIn.name = this.name;
       checkIn.phone = this.phone;
-      checkIn.arrivalTime = this.arrivalDateTime;
+      checkIn.arrivalDateTime = this.arrivalDateTime;
       checkIn.departureDateTime = this.departureDateTime;
       lstCheckout.push(checkIn);
       RoomsNotAvailable.push(room);
