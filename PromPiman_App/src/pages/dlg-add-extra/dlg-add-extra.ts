@@ -1,6 +1,8 @@
+import { Extra } from './../../models/Extra';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, DateTime } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 /**
  * Generated class for the DlgAddExtraPage page.
@@ -17,7 +19,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DlgAddExtraPage {
   public FormItem: FormGroup;
   private submitRequested: boolean
-  roomNum: string;
+  dataEdit: Extra;
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder, private viewCtrl: ViewController) {
     this.FormItem = this.fb.group({
       'roomNum': [null, Validators.required],
@@ -25,8 +27,11 @@ export class DlgAddExtraPage {
       'amount': [null, Validators.compose([Validators.pattern('[0-9]*'), Validators.required])],
       'time': [null, Validators.required],
     });
-
-    this.roomNum = navParams.get('roomNum');
+    this.FormItem.get('roomNum').setValue(navParams.get('roomNum'));
+    if (navParams.get('dataEdit') !== null) {
+      this.dataEdit = navParams.get('dataEdit');
+      this.FormItem.patchValue(this.dataEdit);
+    }
   }
 
   ionViewDidLoad() {

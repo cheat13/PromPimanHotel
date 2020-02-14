@@ -1,7 +1,7 @@
 export class Extra {
     type: string;
     amount: number;
-    time: any;
+    time: Date | number | string;
 }
 
 export class roomsExtra {
