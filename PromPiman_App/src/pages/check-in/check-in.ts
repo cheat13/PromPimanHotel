@@ -1,14 +1,8 @@
+import { Checkout, lstCheckout } from './../../models/Checkout';
 import { Member } from './../../models/Member';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { FormGroup, FormBuilder } from '@angular/forms';
-
-/**
- * Generated class for the CheckInPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RoomsSelect, RoomsNotAvailable } from '../../models/Room';
 
 @IonicPage()
 @Component({
@@ -22,10 +16,11 @@ export class CheckInPage {
   public picture: string;
   public arrivalDateTime: Date;
   public departureDateTime: Date;
-  public roomLst: string[];
+  public roomsSelect: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.clear();
+    this.roomsSelect = RoomsSelect;
   }
 
   ionViewDidLoad() {
@@ -45,7 +40,21 @@ export class CheckInPage {
     modal.present();
   }
 
+  selectRooms() {
+    this.navCtrl.push("RoomsPage");
+  }
+
   confirm() {
+    this.roomsSelect.forEach(room => {
+      let checkIn = new Checkout();
+      checkIn.roomNumber = room;
+      checkIn.name = this.name;
+      checkIn.phone = this.phone;
+      checkIn.arrivalTime = this.arrivalDateTime;
+      checkIn.departureDateTime = this.departureDateTime;
+      lstCheckout.push(checkIn);
+      RoomsNotAvailable.push(room);
+    });
     this.clear();
   }
 
@@ -55,7 +64,7 @@ export class CheckInPage {
     this.picture = "../../assets/imgs/1377139107-2-o.jpg";
     this.arrivalDateTime = null;
     this.departureDateTime = null;
-    this.roomLst = null;
+    this.roomsSelect = null;
+    RoomsSelect.splice(0);
   }
-
 }

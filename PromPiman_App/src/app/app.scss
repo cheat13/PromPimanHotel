@@ -18,5 +18,11 @@ table{
     background-color: #f8f9fa;
 }
 
+.notAvailable {
+  border: 2px solid red;
+}
 
-
+.selected {
+  border: 2px solid green;
+  background-color:#32db64,
+}
