@@ -1,0 +1,53 @@
+@startuml
+
+hide footbox
+title ลงทะเบียนผู้ใช้-คนต่างชาติ
+
+actor User
+participant "<<Mobile>>\nClient" as Client
+participant "<<AccountController>>\nAPI" as API
+participant "<<DataBase>>\nDB" as DB
+
+User -> Client: เปิดหน้าลงทะเบียน
+Client -> API: 1.<<Get>> api/account
+API -> DB: ดึงข้อมูลลูกค้า
+DB --> API: Result
+note right
+object array
+end note
+API --> Client: Result
+Client --> User: sort วันที่ล่าสุดไว้ด้านบน
+
+
+User -> Client: กดปุ่มลงทะเบียน
+Client -> Client: กรอกข้อมูลคนต่างชาติ
+alt กรอกข้อมูลไม่ครบ
+    Client -> Client: แจ้งเตือนกรอกข้อมูลให้ครบ
+end
+Client -> API: 2.[กรอกข้อมูลครบ] <<POST>> api/account
+API -> DB: ตรวจสอบว่ามีบัญชีนั้นๆหรือไม่
+DB --> API: Result
+note right
+    {
+        HaveAccout: bool,
+        Message: string
+    }
+end note
+alt 
+API --> Client: [HaveAccount = true]\nแจ้งเตือน: มีข้อมูลในระบบเรียบร้อยแล้ว
+API -> DB: [HaveAccount = false]\nทำการบันทึกข้อมูล
+end
+DB -> DB: บันทึกข้อมูล
+DB --> API: Result
+note right
+    {
+        IsSuccess: bool,
+        Message: string
+    }
+end note
+alt 
+API --> Client: [IsSuccess = true]\nแจ้งเตือน: บันทึกข้อมูลสำเร็จ และทำข้อ 1 ใหม่
+API --> Client: [IsSuccess = false]\nแจ้งเตือน: บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง
+end
+
+@enduml

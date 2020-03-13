@@ -1,0 +1,53 @@
+@startuml
+
+hide footbox
+title Cashier report
+
+actor User
+participant "<<Mobile>>\nClient" as Client
+participant "<<FinanceController>>\nAPI" as API
+participant "<<DataBase>>\nDB" as DB
+
+
+User -> Client: กดปุ่มเพิ่มรายการ
+Client -> Client: กรอกรายละเอียด
+alt กรอกรายละเอียดไม่ครบ
+    Client -> Client: แจ้งเตือนกรอกข้อมูลให้ครบ
+end
+Client -> API: 1. [กรอกรายละเอียดครบ] <<Post>>: api/finance
+API -> DB: บันทึกข้อมูล
+DB -> DB: คำนวณเงิน
+DB --> API: Result
+note right
+    {
+         IsSuccess: bool,
+         Message: string
+    }
+end note
+alt
+API --> Client: [IsSuccess = true]\nแจ้งเตือน: บันทึกข้อมูลสำเร็จ
+API --> Client: [IsSuccess = false]\nแจ้งเตือน: บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง
+end
+
+Client -> API: 2. <<Get>>: api/finance
+API -> DB: ดึงข้อมูล
+DB --> API: Result
+API --> Client: Result
+
+User -> Client: กดรายการในหน้าจัดการเอกสาร
+Client -> Client: ส่งข้อมูลให้หน้า Modal
+Client -> API: 3. ลบรายการ<<Delete>>:api/finance {Id}
+API -> DB: ลบข้อมูลจาก Id
+DB -> DB: ลบข้อมูล
+DB --> API: Result
+note right
+    {
+        IsSuccess: bool,
+        Message: string
+    }
+end note
+alt 
+API --> Client: [IsSuccess = true]\nแจ้งเตือน: ลบข้อมูลสำเร็จ และทำข้อ 2 ใหม่
+API --> Client: [IsSuccess = false]\nแจ้งเตือน: ลบข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง
+end
+@enduml

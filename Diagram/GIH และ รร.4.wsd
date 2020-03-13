@@ -1,0 +1,24 @@
+@startuml
+
+hide footbox
+title Guest in house และ ร.ร.๔
+
+actor User
+participant "Web" as Client
+participant "API" as API
+participant "Database" as DB
+
+User -> Client:1. เปิดหน้า Guest in house หรือ ร.ร.๔
+Client -> API: <<Get>>: 
+API -> DB: ดึงข้อมูล [วันที่ปัจจุบัน]
+DB --> API: Result
+API --> Client: Result
+
+
+User -> Client:2. เลือกวันที่ในการค้นหา Guest in house หรือ ร.ร.๔
+Client -> API: <<Get>>:  
+API -> DB: ดึงข้อมูล [วันที่ถูกเลือก ซึ่งอยู่ในช่วง วันที่ Arrival และ Departure ]
+DB --> API: Result
+API --> Client: Result
+
+@enduml

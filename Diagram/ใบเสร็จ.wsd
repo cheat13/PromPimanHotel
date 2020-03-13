@@ -1,0 +1,25 @@
+@startuml
+
+hide footbox
+title ใบเสร็จ
+
+actor User
+participant "Web" as Client
+participant "API" as API
+participant "Database" as DB
+
+User -> Client:1. เปิดหน้า ใบเสร็จ
+Client -> API: <<Get>>: api/finance
+API -> DB: ดึงข้อมูล [วันที่ปัจจุบันและมีการ checkout เรียบร้อยแล้ว]
+DB --> API: Result
+API --> Client: Result
+
+
+User -> Client:2. เลือกรายการที่ต้องการดู
+Client -> Client: ส่ง Id นั้นๆไปหน้า modal ใบเสร็จ
+Client -> API: <<Get>>: api/finance {Id} 
+API -> DB: ดึงข้อมูล
+DB --> API: Result
+API --> Client: Result
+
+@enduml

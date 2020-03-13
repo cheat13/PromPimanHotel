@@ -1,0 +1,49 @@
+@startuml
+
+hide footbox
+title ใบกำกับภาษี
+
+actor User
+participant "Web" as Client
+participant "API" as API
+participant "Database" as DB
+
+User -> Client: เปิดหน้าการจัดการเอกสาร(ใบกำกับภาษี)
+Client -> API: 1.<<Get>>:api / taxInvoice
+API -> DB: ดึงข้อมูล 
+DB --> API: Result
+note right
+object array
+end note
+API --> Client: Result
+
+User -> Client: กดค้นหาข้อมูลลูกค้า (หน้ารายละเอียดใบกำกับภาษี)
+Client -> API: 2. <<Get>>: 
+API -> DB: ดึงข้อมูล 
+DB --> API: Result
+note right
+[TaxInvoice = true]
+[นับจากวันที่ออกไม่เกิน x เดือน]
+end note
+API --> Client: Result
+
+
+User -> Client: กดยืนยัน (หน้ารายละเอียดใบกำกับภาษี)
+Client -> Client: ส่ง form ไปหน้าตัวอย่างใบกำกับภาษี
+Client -> API: 3.กดยืนยัน(หน้าตัวอย่างใบกำกับภาษี) <<Post>>: api / taxInvoice
+API -> DB: บันทึกข้อมูล
+DB --> API: Result
+note right
+{
+    IsSuccess: Bool,
+    Message: String
+}
+end note
+alt
+API --> Client: [IsSuccess = true]\nแจ้งเตือน: บันทึกข้อมูลสำเร็จ ทำข้อ1ใหม่
+API --> Client: [IsSuccess = false]\nแจ้งเตือน: บันทึกข้อมูลล้มเหลว กรุณาลองใหม่
+end
+
+
+
+@enduml
