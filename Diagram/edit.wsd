@@ -1,0 +1,35 @@
+@startuml
+
+hide footbox
+title แก้ไขข้อมูลสมาชิก
+
+actor User
+participant "<<Mobile>>\nClient" as Client
+participant "<<AccountController>>\nAPI" as API
+participant "<<DataBase>>\nDB" as DB
+
+
+User -> Client: กดรายชื่อในหน้าลงทะเบียน
+Client -> Client: ส่ง Id ให้หน้าข้อมูลสมาชิก
+Client -> API: 1. หน้าข้อมูลสมาชิก <<Get>>: api/account {Id}
+API -> DB: ดึงข้อมูลลูกค้าจาก Id 
+DB --> API: Result
+API --> Client: Result
+
+User -> Client: กดปุ่มแก้ไขข้อมูล
+Client -> Client: ส่งข้อมูลให้หน้า Modal
+Client -> API: 2.Update <<Put>>: api/account {Id}
+API -> DB: อัพเดทข้อมูลจาก Id
+DB -> DB: อัพเดทข้อมูล
+DB --> API: Result
+note right
+    {
+        IsSuccess: bool,
+        Message: string
+    }
+end note
+alt 
+API --> Client: [IsSuccess = true]\nแจ้งเตือน: แก้ไขข้อมูลสำเร็จ และทำข้อ 1 ใหม่
+API --> Client: [IsSuccess = false]\nแจ้งเตือน: แก้ไขข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง
+end
+@enduml
