@@ -1,0 +1,128 @@
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+User -> A:1. เพิ่มห้องซ่อม
+A -> A: 2. ตรวจสอบข้อมูลถูกต้องครบถ้วนหรือยัง 
+
+alt ถ้ากรอกข้อมูลไม่ครบจะไม่สามารถกดบันทึกได้
+A -> A: 1.เลือกชั้น\n2.เลือกห้อง\n3.แจ้งปัญหาที่ต้องซ่อม 
+end
+
+A -> B: 3. {ข้อมูลกรอกถูกต้องครบถ้วนแล้ว}  เพิ่มห้องซ่อม
+B -> C: 4.  เก็บข้อมูล
+C --> B: result
+B --> A: เพิ่มข้อมูลข้อมูลตามที่ User กรอก
+A --> User
+
+@enduml
+
+
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+User -> A: ลบข้อมูลห้องที่ถูกซ่อม 
+A -> A: ตรวจสอบข้อมูลว่าถูกต้องหรือยัง
+A -> B: {ถ้าข้อมูลถูกต้อง} ลบข้อมูลห้องที่ถูกแจ้งซ่อม
+B -> C: ลบข้อมูล
+C --> B: result 
+B --> A: ข้อมูลที่มีการแจ้งซ่อมแล้วถูกลบ 
+A --> User
+
+@enduml
+
+
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+User -> A:1. เพิ่มห้องผู้บริหาร
+A -> A: 2. ตรวจสอบข้อมูลถูกต้องครบถ้วนหรือยัง
+           
+alt ถ้ากรอกข้อมูลไม่ครบจะไม่สามารถกดบันทึกได้
+A -> A: 1.เลือกชั้น\n2.เลือกห้อง\n3.ชื่อผู้บริหาร\n4. วันที่เข้าพัก
+end
+
+A -> B: 3. {ข้อมูลกรอกถูกต้องครบถ้วนแล้ว}  เพิ่มห้องผู้บริหาร
+B -> C: 4.  เก็บข้อมูล
+C --> B: result
+B --> A: เพิ่มข้อมูลข้อมูลตามที่ User กรอก
+A --> User
+
+@enduml
+
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+User -> A: ลบข้อมูลห้องผู้บริหารที่แจ้งออก 
+A -> A: ตรวจสอบข้อมูลว่าถูกต้องหรือยัง
+A -> B: {ถ้าข้อมูลถูกต้อง} ลบข้อมูลห้องผู้บริหารที่แจ้งออก
+B -> C: ลบข้อมูล
+C --> B: result 
+B --> A: ข้อมูลที่มีการแจ้งออกผู้บริหารจะถูกลบ 
+A --> User
+
+@enduml
+
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+User -> A: ลบข้อมูลห้องผู้บริหารที่แจ้งออก 
+A -> A: ตรวจสอบข้อมูลว่าถูกต้องหรือยัง
+A -> B: {ถ้าข้อมูลถูกต้อง} ลบข้อมูลห้องผู้บริหารที่แจ้งออก
+B -> C: ลบข้อมูล
+C --> B: result
+B --> A: ข้อมูลที่มีการแจ้งออกผู้บริหารจะถูกลบ 
+A --> User
+
+@enduml
+
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+User -> A: เลือกวันที่ในการค้นหา Guest in house
+A -> B: {ส่งข้อมูลวันที่ค้นหาวันที่จะอยู่ ระหว่าง Arrival และ Departure}   
+B -> C: ดึงข้อมูล
+C --> B: result
+B --> A
+A --> User: เห็นข้อมูลวันที่ที่ค้นหา
+
+@enduml
+
+
+@startuml
+
+actor User
+participant "Web" as A
+participant "API" as B
+participant "Database" as C
+
+@enduml
+
+
+
+
+
+
